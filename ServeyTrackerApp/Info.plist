@@ -43,5 +43,10 @@
 	<string>$(PRODUCT_NAME) Photo Library </string>
 	<key>NSCameraUsageDescription</key>
 	<string>$(PRODUCT_NAME) Camera </string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 </dict>
 </plist>

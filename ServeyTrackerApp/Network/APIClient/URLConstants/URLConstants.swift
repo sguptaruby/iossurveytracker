@@ -34,5 +34,10 @@ internal final class URLConstants: NSObject {
     class var sendVerificationCode: String {
         return baseURL + "/user/SendVerificationCode"
     }
+    
+    /// User GetMpTags
+    class var getMpTags: String {
+        return baseURL + "/activities/GetMpTags"
+    }
 
 }

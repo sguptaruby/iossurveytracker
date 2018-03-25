@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CategoryView" customModule="ServeyTrackerApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0xs-Fu-JVD">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eLF-fL-W19">
+                            <rect key="frame" x="8" y="17" width="46" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="46" id="H8o-2C-4O1"/>
+                            </constraints>
+                            <state key="normal" image="back"/>
+                            <connections>
+                                <action selector="btnBackactionWithSender:" destination="iN0-l3-epB" eventType="touchUpInside" id="toV-h8-Lb1"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Province" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QpO-wM-gSe">
+                            <rect key="frame" x="152.5" y="22" width="69.5" height="21"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.039215686270000001" green="0.53725490200000003" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="eLF-fL-W19" firstAttribute="centerY" secondItem="0xs-Fu-JVD" secondAttribute="centerY" id="7b7-2V-9la"/>
+                        <constraint firstItem="eLF-fL-W19" firstAttribute="leading" secondItem="0xs-Fu-JVD" secondAttribute="leading" constant="8" id="Bek-i4-IpD"/>
+                        <constraint firstItem="QpO-wM-gSe" firstAttribute="centerX" secondItem="0xs-Fu-JVD" secondAttribute="centerX" id="Bqs-7P-xXm"/>
+                        <constraint firstItem="QpO-wM-gSe" firstAttribute="centerY" secondItem="0xs-Fu-JVD" secondAttribute="centerY" id="IAv-YR-Nji"/>
+                        <constraint firstAttribute="height" constant="64" id="ZZU-0M-50i"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DYh-sv-BH3">
+                    <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <connections>
+                        <outlet property="dataSource" destination="iN0-l3-epB" id="LOu-SI-2AN"/>
+                        <outlet property="delegate" destination="iN0-l3-epB" id="Zbk-Lo-9GS"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="DYh-sv-BH3" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Gho-dE-sQm"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="DYh-sv-BH3" secondAttribute="bottom" id="Nz1-8A-Mye"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="DYh-sv-BH3" secondAttribute="trailing" id="PAk-gM-7GC"/>
+                <constraint firstItem="0xs-Fu-JVD" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="YRE-j3-76P"/>
+                <constraint firstItem="0xs-Fu-JVD" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="i8y-nn-kTs"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="0xs-Fu-JVD" secondAttribute="trailing" id="juf-az-OsX"/>
+                <constraint firstItem="DYh-sv-BH3" firstAttribute="top" secondItem="0xs-Fu-JVD" secondAttribute="bottom" id="u3R-9o-g1P"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="lbltilte" destination="QpO-wM-gSe" id="2kJ-5w-A2R"/>
+                <outlet property="tblCategory" destination="DYh-sv-BH3" id="cMk-PP-mMX"/>
+            </connections>
+        </view>
+    </objects>
+    <resources>
+        <image name="back" width="30" height="30"/>
+    </resources>
+</document>

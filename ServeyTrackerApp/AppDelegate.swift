@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import MagicalRecord
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,7 +18,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        let hasLaunchedKey = "HasLaunched"
+        let defaults = UserDefaults.standard
+        let hasLaunched = defaults.bool(forKey: hasLaunchedKey)
+        
+        if !hasLaunched {
+            defaults.set(true, forKey: hasLaunchedKey)
+            let dict:[String:String] = [:]
+            UserDefaults.standard.set(dict, forKey: "userdict")
+            UserDefaults.standard.set(false, forKey: "LoginStatus")
+            let result = UserDefaults.standard.value(forKey: "userdict") as! JSONDictionary
+            print(result.count)
+        }
         naviagtionAppreance()
+        //MagicalRecord.setupCoreDataStack()
+        MagicalRecord.setupCoreDataStack(withAutoMigratingSqliteStoreNamed: "ServeyTrackerApp")
         return true
     }
 
@@ -94,6 +109,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-
 }
 

@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-//import MBProgressHUD
+import MBProgressHUD
 
 extension UIView {
 
@@ -85,15 +85,15 @@ extension UIView {
         layer.addSublayer(lowerBorder)
     }
 
-//    /// Shows Imaginamos progress view
-//    internal func showHUD() {
-//        MBProgressHUD.showAdded(to: self, animated: true)
-//    }
-//    
-//    /// Hides Imaginamos progress view
-//    internal func hideHUD() {
-//        MBProgressHUD.hide(for: self, animated: false)
-//    }
+    /// Shows Imaginamos progress view
+    internal func showHUD() {
+        MBProgressHUD.showAdded(to: self, animated: true)
+    }
+    
+    /// Hides Imaginamos progress view
+    internal func hideHUD() {
+        MBProgressHUD.hide(for: self, animated: false)
+    }
 
     /// Instantiate a view from xib.
     ///

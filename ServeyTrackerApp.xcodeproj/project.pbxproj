@@ -11,6 +11,8 @@
 		18482D4F206357F100A15A54 /* HotsoptsScreen1VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18482D4E206357F100A15A54 /* HotsoptsScreen1VC.swift */; };
 		185BA00F20661CCE00FB3FCB /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185BA00E20661CCE00FB3FCB /* HistoryViewController.swift */; };
 		1866533320659D72009F78F6 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1866533220659D72009F78F6 /* ProfileViewController.swift */; };
+		18BA127F206816BD00EE087E /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BA127E206816BD00EE087E /* CategoryView.swift */; };
+		18BA1281206816CD00EE087E /* CategoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BA1280206816CD00EE087E /* CategoryView.xib */; };
 		18C205DC2062C53F00679B42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C205DB2062C53F00679B42 /* AppDelegate.swift */; };
 		18C205DE2062C53F00679B42 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C205DD2062C53F00679B42 /* ViewController.swift */; };
 		18C205E12062C53F00679B42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18C205DF2062C53F00679B42 /* Main.storyboard */; };
@@ -43,6 +45,15 @@
 		18DB1CDD2064356D008E019E /* HotsoptsScreen2VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DB1CDC2064356D008E019E /* HotsoptsScreen2VC.swift */; };
 		18DB1CDF20643589008E019E /* HotsoptsScreen3VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DB1CDE20643589008E019E /* HotsoptsScreen3VC.swift */; };
 		18DB1CE1206435E5008E019E /* HotsoptsScreen4VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DB1CE0206435E5008E019E /* HotsoptsScreen4VC.swift */; };
+		18E897C920676ECC00064CC5 /* MBProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E897C820676ECB00064CC5 /* MBProgressHUD.framework */; };
+		18E897CA20676ED800064CC5 /* MBProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E897C820676ECB00064CC5 /* MBProgressHUD.framework */; };
+		18E897CB20676ED800064CC5 /* MBProgressHUD.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18E897C820676ECB00064CC5 /* MBProgressHUD.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		18E897CE2067807200064CC5 /* ServeyTrackerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E897CD2067807200064CC5 /* ServeyTrackerManager.swift */; };
+		18E897DF2067ABF100064CC5 /* GetMpTags+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E897DD2067ABF100064CC5 /* GetMpTags+CoreDataClass.swift */; };
+		18E897E02067ABF100064CC5 /* GetMpTags+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E897DE2067ABF100064CC5 /* GetMpTags+CoreDataProperties.swift */; };
+		18E897E32067B3B700064CC5 /* MagicalRecord.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E897E22067B3B700064CC5 /* MagicalRecord.framework */; };
+		18E897E42067B3C400064CC5 /* MagicalRecord.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E897E22067B3B700064CC5 /* MagicalRecord.framework */; };
+		18E897E52067B3C400064CC5 /* MagicalRecord.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18E897E22067B3B700064CC5 /* MagicalRecord.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,8 +80,10 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				18E897E52067B3C400064CC5 /* MagicalRecord.framework in Embed Frameworks */,
 				18C206362062D6E800679B42 /* SDWebImage.framework in Embed Frameworks */,
 				18C206342062D6E800679B42 /* IQKeyboardManager.framework in Embed Frameworks */,
+				18E897CB20676ED800064CC5 /* MBProgressHUD.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -82,6 +95,8 @@
 		18482D4E206357F100A15A54 /* HotsoptsScreen1VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotsoptsScreen1VC.swift; sourceTree = "<group>"; };
 		185BA00E20661CCE00FB3FCB /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		1866533220659D72009F78F6 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		18BA127E206816BD00EE087E /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
+		18BA1280206816CD00EE087E /* CategoryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryView.xib; sourceTree = "<group>"; };
 		18C205D82062C53F00679B42 /* ServeyTrackerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ServeyTrackerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18C205DB2062C53F00679B42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18C205DD2062C53F00679B42 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -117,6 +132,11 @@
 		18DB1CDC2064356D008E019E /* HotsoptsScreen2VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotsoptsScreen2VC.swift; sourceTree = "<group>"; };
 		18DB1CDE20643589008E019E /* HotsoptsScreen3VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotsoptsScreen3VC.swift; sourceTree = "<group>"; };
 		18DB1CE0206435E5008E019E /* HotsoptsScreen4VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotsoptsScreen4VC.swift; sourceTree = "<group>"; };
+		18E897C820676ECB00064CC5 /* MBProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MBProgressHUD.framework; sourceTree = "<group>"; };
+		18E897CD2067807200064CC5 /* ServeyTrackerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServeyTrackerManager.swift; sourceTree = "<group>"; };
+		18E897DD2067ABF100064CC5 /* GetMpTags+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GetMpTags+CoreDataClass.swift"; sourceTree = "<group>"; };
+		18E897DE2067ABF100064CC5 /* GetMpTags+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GetMpTags+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		18E897E22067B3B700064CC5 /* MagicalRecord.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MagicalRecord.framework; path = ServeyTrackerApp/Framework/MagicalRecord.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,9 +144,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18E897E42067B3C400064CC5 /* MagicalRecord.framework in Frameworks */,
+				18E897E32067B3B700064CC5 /* MagicalRecord.framework in Frameworks */,
 				18C206352062D6E800679B42 /* SDWebImage.framework in Frameworks */,
 				18C206242062C5A600679B42 /* SDWebImage.framework in Frameworks */,
+				18E897CA20676ED800064CC5 /* MBProgressHUD.framework in Frameworks */,
 				18C206232062C5A600679B42 /* IQKeyboardManager.framework in Frameworks */,
+				18E897C920676ECC00064CC5 /* MBProgressHUD.framework in Frameworks */,
 				18C206332062D6E800679B42 /* IQKeyboardManager.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -155,6 +179,7 @@
 				18C205F22062C53F00679B42 /* ServeyTrackerAppTests */,
 				18C205FD2062C53F00679B42 /* ServeyTrackerAppUITests */,
 				18C205D92062C53F00679B42 /* Products */,
+				18E897E12067B3B600064CC5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -171,6 +196,8 @@
 		18C205DA2062C53F00679B42 /* ServeyTrackerApp */ = {
 			isa = PBXGroup;
 			children = (
+				18E897CC2067805100064CC5 /* Helper */,
+				18E897C520675BCA00064CC5 /* Resources */,
 				18C2062E2062C78E00679B42 /* Storyboard */,
 				18C2062D2062C5DC00679B42 /* Controller */,
 				18C2062C2062C5DC00679B42 /* View */,
@@ -222,6 +249,7 @@
 		18C206102062C5A500679B42 /* Framework */ = {
 			isa = PBXGroup;
 			children = (
+				18E897C820676ECB00064CC5 /* MBProgressHUD.framework */,
 				18C206112062C5A500679B42 /* IQKeyboardManager.framework */,
 				18C206122062C5A500679B42 /* SDWebImage.framework */,
 			);
@@ -231,6 +259,8 @@
 		18C206132062C5A500679B42 /* Modal */ = {
 			isa = PBXGroup;
 			children = (
+				18E897DD2067ABF100064CC5 /* GetMpTags+CoreDataClass.swift */,
+				18E897DE2067ABF100064CC5 /* GetMpTags+CoreDataProperties.swift */,
 				18C206142062C5A500679B42 /* JSONUtilities.swift */,
 			);
 			path = Modal;
@@ -276,6 +306,8 @@
 		18C2062C2062C5DC00679B42 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				18BA127E206816BD00EE087E /* CategoryView.swift */,
+				18BA1280206816CD00EE087E /* CategoryView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -303,6 +335,29 @@
 				18C2063A2062EDD500679B42 /* Menu.storyboard */,
 			);
 			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		18E897C520675BCA00064CC5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		18E897CC2067805100064CC5 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				18E897CD2067807200064CC5 /* ServeyTrackerManager.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		18E897E12067B3B600064CC5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				18E897E22067B3B700064CC5 /* MagicalRecord.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -413,6 +468,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18BA1281206816CD00EE087E /* CategoryView.xib in Resources */,
 				18C2062B2062C5A600679B42 /* Info.plist in Resources */,
 				18C205E92062C53F00679B42 /* LaunchScreen.storyboard in Resources */,
 				18C205E62062C53F00679B42 /* Assets.xcassets in Resources */,
@@ -443,6 +499,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18E897DF2067ABF100064CC5 /* GetMpTags+CoreDataClass.swift in Sources */,
 				18C205DE2062C53F00679B42 /* ViewController.swift in Sources */,
 				185BA00F20661CCE00FB3FCB /* HistoryViewController.swift in Sources */,
 				18DB1CDB20642EE0008E019E /* UITextFieldExtension.swift in Sources */,
@@ -458,13 +515,16 @@
 				18482D4D20634EB800A15A54 /* UIDevice.swift in Sources */,
 				18C206282062C5A600679B42 /* NotificationNameConstants.swift in Sources */,
 				18C206222062C5A600679B42 /* UIViewExtensions.swift in Sources */,
+				18E897CE2067807200064CC5 /* ServeyTrackerManager.swift in Sources */,
 				18C206252062C5A600679B42 /* JSONUtilities.swift in Sources */,
+				18BA127F206816BD00EE087E /* CategoryView.swift in Sources */,
 				18482D4F206357F100A15A54 /* HotsoptsScreen1VC.swift in Sources */,
 				18C206392062EA9E00679B42 /* RegisterViewController.swift in Sources */,
 				18C206292062C5A600679B42 /* URLConstants.swift in Sources */,
 				18C206212062C5A600679B42 /* UIViewControllerExtesnsion.swift in Sources */,
 				18C206322062C7EF00679B42 /* LoginViewController.swift in Sources */,
 				18C206272062C5A600679B42 /* APIClient.swift in Sources */,
+				18E897E02067ABF100064CC5 /* GetMpTags+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

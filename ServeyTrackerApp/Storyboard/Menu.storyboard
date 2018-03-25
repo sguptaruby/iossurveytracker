@@ -613,14 +613,26 @@ Provisioning App</string>
                                     <constraint firstAttribute="height" constant="44" id="pLU-Kg-rHV"/>
                                 </constraints>
                             </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QlV-Vu-NCc">
+                                <rect key="frame" x="0.0" y="254" width="375" height="349"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Y9t-8O-8ZG" id="LY2-Rj-cxq"/>
+                                    <outlet property="delegate" destination="Y9t-8O-8ZG" id="F5f-D6-oHF"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="EL9-j0-bFI" firstAttribute="top" secondItem="Kd3-zN-F0T" secondAttribute="top" constant="20" id="6Tb-SD-LiO"/>
                             <constraint firstItem="Kd3-zN-F0T" firstAttribute="trailing" secondItem="aSu-tF-t7u" secondAttribute="trailing" constant="10" id="92o-rw-gTo"/>
+                            <constraint firstItem="QlV-Vu-NCc" firstAttribute="leading" secondItem="Kd3-zN-F0T" secondAttribute="leading" id="Ig0-TN-WcR"/>
                             <constraint firstItem="Kd3-zN-F0T" firstAttribute="bottom" secondItem="aSu-tF-t7u" secondAttribute="bottom" constant="20" id="PcT-eV-rZ7"/>
+                            <constraint firstItem="aSu-tF-t7u" firstAttribute="top" secondItem="QlV-Vu-NCc" secondAttribute="bottom" id="PkQ-Xe-Ccw"/>
+                            <constraint firstItem="Kd3-zN-F0T" firstAttribute="trailing" secondItem="QlV-Vu-NCc" secondAttribute="trailing" id="YVR-ak-Kff"/>
                             <constraint firstAttribute="trailing" secondItem="EL9-j0-bFI" secondAttribute="trailing" constant="20" id="fdt-wn-sn9"/>
                             <constraint firstItem="EL9-j0-bFI" firstAttribute="leading" secondItem="Kd3-zN-F0T" secondAttribute="leading" constant="20" id="fer-1X-HzK"/>
+                            <constraint firstItem="QlV-Vu-NCc" firstAttribute="top" secondItem="EL9-j0-bFI" secondAttribute="bottom" id="hie-2i-BYE"/>
                             <constraint firstItem="aSu-tF-t7u" firstAttribute="leading" secondItem="Kd3-zN-F0T" secondAttribute="leading" constant="10" id="ucM-22-eCV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Kd3-zN-F0T"/>
@@ -628,6 +640,7 @@ Provisioning App</string>
                     <connections>
                         <outlet property="applyTXT" destination="mdN-uq-MV6" id="JBc-8S-XkL"/>
                         <outlet property="reportTXT" destination="nyH-tZ-TBv" id="FPG-qF-tyW"/>
+                        <outlet property="tblSubCategory" destination="QlV-Vu-NCc" id="bn6-r6-Ybp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wea-Au-2SF" userLabel="First Responder" sceneMemberID="firstResponder"/>

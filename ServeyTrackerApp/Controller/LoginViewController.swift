@@ -16,10 +16,31 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var mobileTxtField:UITextField!
     @IBOutlet weak var verificationTxtField:UITextField!
     
+    var fourDigitNumber: String {
+        var result = ""
+        repeat {
+            // Create a string with a random number 0...9999
+            result = String(format:"%04d", arc4random_uniform(10000) )
+        } while Set<Character>(result).count < 4
+        return result
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        let result = UserDefaults.standard.value(forKey: "LoginStatus") as! Bool
+        if result {
+            let menustoryboard = UIStoryboard.init(name: "Menu", bundle: nil)
+            let vc = menustoryboard.instantiateViewController(withIdentifier: MenuViewController.stringRepresentation) as! MenuViewController
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        
+        let users = self.getAllServeyTrackerUser()
+        if users.count == 0 {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier:RegisterViewController.stringRepresentation)
+            self.navigationController?.pushViewController(vc!, animated: false)
+        }
         defaultConfigure()
     }
 
@@ -31,6 +52,7 @@ class LoginViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.hideNavigationBar()
+        self.getMpTagsApiCall()
     }
     
     func defaultConfigure()  {
@@ -55,15 +77,52 @@ class LoginViewController: UIViewController {
     }
     
     func validation() -> Bool {
+        let dict = self.getAllServeyTrackerUser()
+        print(dict)
         if (emailTxtField.text?.isEmpty)! {
+            self.showAlert(title: "", message: "Please enter email.")
             return false
         }
         if (mobileTxtField.text?.isEmpty)! {
+            self.showAlert(title: "", message: "Please enter mobile number.")
             return false
         }
         if (verificationTxtField.text?.isEmpty)! {
+            self.showAlert(title: "", message: "Please enter verification.")
             return false
         }
+        if dict[DictionaryKey.email] as! String != emailTxtField.text! {
+            self.showAlert(title: "", message: "enter vaild user.")
+            return false
+        }
+        if dict[DictionaryKey.telephone] as! String != mobileTxtField.text! {
+            self.showAlert(title: "", message: "enter vaild mobile number.")
+            return false
+        }
+        if verificationTxtField.text != ServeyTrackerManager.share.verificationCode {
+            self.showAlert(title: "", message: "Verification code is invalid.Please enter valid code.")
+            return false
+        }
+        return true
+    }
+    
+    
+    
+    func verificationCodevalidation() -> Bool {
+        if (emailTxtField.text?.isEmpty)! {
+            self.showAlert(title: "", message: "Please enter email.")
+            return false
+        }
+        if (mobileTxtField.text?.isEmpty)! {
+            self.showAlert(title: "", message: "Please enter mobile number.")
+            return false
+        }
+        return true
+    }
+    
+    func checkUserEneterValidData() -> Bool {
+        let dict = self.getAllServeyTrackerUser()
+        print(dict)
         return true
     }
     
@@ -75,21 +134,31 @@ class LoginViewController: UIViewController {
     }
     
     func sendVerificationCodeApi()  {
-        let params = ["VerificationCode":emailTxtField.text ?? ""]
+        let params = ["Email":emailTxtField.text ?? "","VerificationCode":fourDigitNumber]
         APIClient.init().postRequest(withParams: params, url: URLConstants.sendVerificationCode) { (JSON:Any?, RESPONSE:URLResponse?, error:Error?) in
-            
+            if JSON != nil {
+                ServeyTrackerManager.share.verificationCode = params["VerificationCode"]
+                print(JSON ?? "nil")
+                self.showAlert(title: "", message: "Verification Code will received to registered Phone number Via SMS And Via E-mail shortly.")
+            }else{
+                self.showAlert(title: "Alert!", message: "Something went to wrong.Please try again.")
+            }
         }
     }
     
     @IBAction func btnLoginAction(sender:UIButton) {
-        let menustoryboard = UIStoryboard.init(name: "Menu", bundle: nil)
-        let vc = menustoryboard.instantiateViewController(withIdentifier: MenuViewController.stringRepresentation) as! MenuViewController
-        self.navigationController?.pushViewController(vc, animated: true)
-        
+        if validation() {
+            UserDefaults.standard.set(true, forKey: "LoginStatus")
+            let menustoryboard = UIStoryboard.init(name: "Menu", bundle: nil)
+            let vc = menustoryboard.instantiateViewController(withIdentifier: MenuViewController.stringRepresentation) as! MenuViewController
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     @IBAction func btnSendVerificationCodeAction(sender:UIButton) {
-    
+        if verificationCodevalidation() {
+            sendVerificationCodeApi()
+        }
     }
 }
 

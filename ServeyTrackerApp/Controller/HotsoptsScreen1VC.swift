@@ -16,6 +16,7 @@ class HotsoptsScreen1VC: UIViewController {
     @IBOutlet weak var areaTXT:UITextField!
     @IBOutlet weak var scrollVW:UIScrollView!
     @IBOutlet weak var contentVW:UIView!
+    var categoryVW:CategoryView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +57,13 @@ class HotsoptsScreen1VC: UIViewController {
         districtTXT.delegate = self
         areaTXT.delegate = self
         divisionTXT.delegate = self
+        categoryVW = CategoryView.instanceFromNib() as! CategoryView
+        categoryVW.frame = self.view.bounds
+        categoryVW.lbltilte.text = "Provision"
+        categoryVW.isHidden = true
+        categoryVW.delegate = self
+        self.view.addSubview(categoryVW)
+        self.view.bringSubview(toFront: categoryVW)
     }
 }
 
@@ -63,5 +71,58 @@ extension HotsoptsScreen1VC:UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         return textField.resignFirstResponder()
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if provinceTXT == textField {
+            self.hideNavigationBar()
+            let mptagsData = self.getnpTagsProvisionData(id: "3")
+            categoryVW.arrCategoryData = mptagsData
+            categoryVW.tblCategory.reloadData()
+            categoryVW.lbltilte.text = "Provision"
+            categoryVW.isHidden = false
+            textField.resignFirstResponder()
+        }else if districtTXT == textField {
+            self.hideNavigationBar()
+            let mptagsData = self.getnpTagsDistrictData(id: ServeyTrackerManager.share.selectedDistrictID)
+            categoryVW.arrCategoryData = mptagsData
+            categoryVW.tblCategory.reloadData()
+            categoryVW.lbltilte.text = "District"
+            categoryVW.isHidden = false
+            textField.resignFirstResponder()
+        }else if divisionTXT == textField {
+            self.hideNavigationBar()
+            let mptagsData = self.getnpTagsDivisonData(id: ServeyTrackerManager.share.selectedDivisonID)
+            categoryVW.arrCategoryData = mptagsData
+            categoryVW.tblCategory.reloadData()
+            categoryVW.lbltilte.text = "DS Divison"
+            categoryVW.isHidden = false
+            textField.resignFirstResponder()
+        }else{
+            
+        }
+    }
+}
+extension HotsoptsScreen1VC:CategoryViewDelegate {
+    func didCancel() {
+        self.showNavigationBar()
+        categoryVW.isHidden = true
+    }
+    
+    func didSelectedData(data: Any, type: String) {
+        let getmptag = data as! GetMpTags
+         self.showNavigationBar()
+        if type == "Provision" {
+            provinceTXT.text = getmptag.name
+            ServeyTrackerManager.share.selectedDistrictID = getmptag.id
+        }
+        if type == "District" {
+            ServeyTrackerManager.share.selectedDivisonID  = getmptag.id
+            districtTXT.text = getmptag.name
+        }
+        if type == "DS Divison" {
+            divisionTXT.text = getmptag.name
+        }
+        categoryVW.isHidden = true
     }
 }

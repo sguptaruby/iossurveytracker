@@ -35,6 +35,7 @@ class MenuViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.hideNavigationBar()
+        self.getMpTagsApiCall()
     }
     
     func defaultConfigure()  {

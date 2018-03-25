@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import MagicalRecord
 
 extension UIViewController {
     
@@ -135,6 +136,68 @@ extension UIViewController {
                 }
             }
         }
+    }
+    
+    func getAllServeyTrackerUser() -> JSONDictionary {
+        let result = UserDefaults.standard.value(forKey: "userdict") as! JSONDictionary
+        print(result.count)
+        return result
+    }
+    func saveUser(dict:JSONDictionary)  {
+        UserDefaults.standard.set(dict, forKey: "userdict")
+        UserDefaults.standard.synchronize()
+    }
+    
+    func getMpTagsApiCall() {
+        self.view.showHUD()
+        APIClient.init().getRequest(withURL: URLConstants.getMpTags) { (JSON:Any?, RESPONSE:URLResponse?, error:Error?) in
+            self.view.hideHUD()
+            if let json = JSON as? [JSONDictionary] {
+               // print(json)
+                MagicalRecord.save({ (context : NSManagedObjectContext!) in
+                    GetMpTags.entityFromArrayInContext(aArray: json as NSArray, localContext: context)
+                    NSManagedObjectContext.mr_default().mr_saveToPersistentStoreAndWait()
+                }, completion: { (status, error) in
+                    if status {
+                        print("Data Save......")
+//                        let arrgetMp = GetMpTags.mr_findAll() as! [GetMpTags]
+//                        print(arrgetMp.first?.name)
+                    }else{
+                       print(error.debugDescription)
+                    }
+                })
+            }
+        }
+    }
+    
+    func getnpTagsProvisionData(id:String) -> [GetMpTags] {
+        let resultPredicate = NSPredicate(format: "type contains[c] %@", id)
+        let arrgetMp = GetMpTags.mr_findAll(with: resultPredicate) as! [GetMpTags]
+        return arrgetMp
+    }
+    
+    func getnpTagsDistrictData(id:String) -> [GetMpTags] {
+        let resultPredicate = NSPredicate(format: "parentId contains[c] %@", id)
+        let arrgetMp = GetMpTags.mr_findAll(with: resultPredicate) as! [GetMpTags]
+        return arrgetMp
+    }
+    
+    func getnpTagsDivisonData(id:String) -> [GetMpTags] {
+        let resultPredicate = NSPredicate(format: "parentId contains[c] %@", id)
+        let arrgetMp = GetMpTags.mr_findAll(with: resultPredicate) as! [GetMpTags]
+        return arrgetMp
+    }
+    
+    func getnpTagsIncidentData(id:String) -> [GetMpTags] {
+        let resultPredicate = NSPredicate(format: "type contains[c] %@", id)
+        let arrgetMp = GetMpTags.mr_findAll(with: resultPredicate) as! [GetMpTags]
+        return arrgetMp
+    }
+    
+    func getnpTagsIncidentSubData(id:String) -> [GetMpTags] {
+        let resultPredicate = NSPredicate(format: "parentId contains[c] %@", id)
+        let arrgetMp = GetMpTags.mr_findAll(with: resultPredicate) as! [GetMpTags]
+        return arrgetMp
     }
     
     /// Stop listening to all notifications.

@@ -100,6 +100,9 @@
                                                 <state key="normal" title="Send Verification Code">
                                                     <color key="titleColor" red="0.039215686270000001" green="0.53725490200000003" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="btnSendVerificationCodeActionWithSender:" destination="pMB-jS-EOO" eventType="touchUpInside" id="ayG-bq-08S"/>
+                                                </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Hhy-Cs-mea">
                                                 <rect key="frame" x="20" y="289.5" width="335" height="150"/>
@@ -248,7 +251,7 @@
         <!--Register View Controller-->
         <scene sceneID="lEv-xd-Miz">
             <objects>
-                <viewController id="lQ1-EN-TnJ" customClass="RegisterViewController" customModule="ServeyTrackerApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RegisterViewController" id="lQ1-EN-TnJ" customClass="RegisterViewController" customModule="ServeyTrackerApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rN2-fs-rHx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -402,6 +405,9 @@
                                                 <state key="normal" title="Register">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="btnRegisterActionWithSender:" destination="lQ1-EN-TnJ" eventType="touchUpInside" id="08i-9J-dZn"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
