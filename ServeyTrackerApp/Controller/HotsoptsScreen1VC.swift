@@ -65,6 +65,35 @@ class HotsoptsScreen1VC: UIViewController {
         self.view.addSubview(categoryVW)
         self.view.bringSubview(toFront: categoryVW)
     }
+    
+    func validation() -> Bool {
+        if (provinceTXT.text?.isEmpty)! {
+            self.showAlert(title: "", message: "Select provision")
+            return false
+        }
+        if (districtTXT.text?.isEmpty)! {
+            self.showAlert(title: "", message: "Select District")
+            return false
+        }
+        if (divisionTXT.text?.isEmpty)! {
+            self.showAlert(title: "", message: "Select District")
+            return false
+        }
+        if (areaTXT.text?.isEmpty)! {
+            self.showAlert(title: "", message: "Enter area")
+            return false
+        }
+        return true
+    }
+    
+    @IBAction func btnNextAction(sender:UIButton) {
+        if validation() {
+            ServeyTrackerManager.share.paramsTnxService[DictionaryKey.area] = areaTXT.text
+            print( ServeyTrackerManager.share.paramsTnxService)
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: HotsoptsScreen2VC.stringRepresentation)
+            self.navigationController?.pushViewController(vc!, animated: true)
+        }
+    }
 }
 
 extension HotsoptsScreen1VC:UITextFieldDelegate {
@@ -114,13 +143,16 @@ extension HotsoptsScreen1VC:CategoryViewDelegate {
          self.showNavigationBar()
         if type == "Provision" {
             provinceTXT.text = getmptag.name
+            ServeyTrackerManager.share.paramsTnxService[DictionaryKey.provinceId] = getmptag.id
             ServeyTrackerManager.share.selectedDistrictID = getmptag.id
         }
         if type == "District" {
+            ServeyTrackerManager.share.paramsTnxService[DictionaryKey.districtId] = getmptag.id
             ServeyTrackerManager.share.selectedDivisonID  = getmptag.id
             districtTXT.text = getmptag.name
         }
         if type == "DS Divison" {
+            ServeyTrackerManager.share.paramsTnxService[DictionaryKey.dsDivisionId] = getmptag.id
             divisionTXT.text = getmptag.name
         }
         categoryVW.isHidden = true

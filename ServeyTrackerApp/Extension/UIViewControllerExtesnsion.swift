@@ -122,6 +122,17 @@ extension UIViewController {
         
         return false
     }
+    
+    func naviagtetToHomeScreen() {
+        let arrController = self.navigationController?.viewControllers
+        for vc in arrController! {
+            if vc is MenuViewController {
+                self.navigationController?.popToViewController(vc, animated: false)
+            }
+        }
+        
+    }
+    
     ///  Open device dial view
     internal func callNumber(phoneNumber:String) {
         
@@ -170,6 +181,45 @@ extension UIViewController {
         }
     }
     
+    func getAllActivity()  {
+        let arrgetMp = MOBTXNSERVEYS.mr_findAll() as! [MOBTXNSERVEYS]
+        print(arrgetMp.first?.id ?? "")
+        for activity in arrgetMp {
+            ServeyTrackerManager.share.dictactivity["IncidentId"] = activity.incidentId
+            ServeyTrackerManager.share.dictactivity["Notes"] = activity.note
+            ServeyTrackerManager.share.dictactivity["creationDate"] = activity.creationDate
+            ServeyTrackerManager.share.dictactivity["Latitude"] = "\(activity.latitude)"
+            ServeyTrackerManager.share.dictactivity["Longitude"] = "\(activity.longitude)"
+            
+            ServeyTrackerManager.share.dictactivity["DistrictId"] = activity.districtId
+            ServeyTrackerManager.share.dictactivity["ProvinceId"] = activity.provinceId
+            ServeyTrackerManager.share.dictactivity["UserId"] = activity.userid
+            ServeyTrackerManager.share.dictactivity["SubIncidentNotes"] = activity.subIncidentNotes
+            ServeyTrackerManager.share.dictactivity["DSDivisionId"] = activity.dsDivisionId
+            ServeyTrackerManager.share.dictactivity["City"] = activity.address
+            let arrImages = activity.images?.components(separatedBy: ",")
+            let dict = ["fileNameList":arrImages]
+            ServeyTrackerManager.share.dictactivity["activityImage"] = dict
+            let incident = activity.subIncidentNotes?.components(separatedBy: ",")
+            let dictIncident = ["incidentIdList":incident]
+            ServeyTrackerManager.share.dictactivity["activityIncident"] = dictIncident
+            ServeyTrackerManager.share.activityParams.append(ServeyTrackerManager.share.dictactivity)
+        }
+    }
+    
+    func updateActivityApiCall(params:JSONDictionary)  {
+        self.view.showHUD()
+        APIClient.init().postRequest(withParams: params, url: URLConstants.Update) { (JSON:Any?, RESPONSE:URLResponse?, error:Error?) in
+            self.view.hideHUD()
+            if JSON != nil {
+                print(JSON ?? "nil")
+                 self.showAlert(title: "", message: "Data sync successfully.")
+            }else{
+                self.showAlert(title: "Alert!", message: "Something went to wrong.Please try again.")
+            }
+        }
+    }
+    
     func getnpTagsProvisionData(id:String) -> [GetMpTags] {
         let resultPredicate = NSPredicate(format: "type contains[c] %@", id)
         let arrgetMp = GetMpTags.mr_findAll(with: resultPredicate) as! [GetMpTags]
@@ -199,6 +249,50 @@ extension UIViewController {
         let arrgetMp = GetMpTags.mr_findAll(with: resultPredicate) as! [GetMpTags]
         return arrgetMp
     }
+    
+    
+    func saveImageDocumentDirectory(image:UIImage,imgName:String){
+        let fileManager = FileManager.default
+        let paths = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent(imgName)
+        //let image = UIImage(named: "apple.jpg")
+        print(paths)
+        let imageData = UIImageJPEGRepresentation(image, 0.5)
+        fileManager.createFile(atPath: paths as String, contents: imageData, attributes: nil)
+    }
+    
+    func getDirectoryPath() -> String {
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        let documentsDirectory = paths[0]
+        return documentsDirectory
+    }
+    
+    func getImage(imgName:String)-> String? {
+        let fileManager = FileManager.default
+        //let name = "\(imgName).jpg"
+        let imagePAth = (self.getDirectoryPath() as NSString).appendingPathComponent(imgName)
+        if fileManager.fileExists(atPath: imagePAth){
+            return imagePAth
+            //self.imagePicker.image = UIImage(contentsOfFile: imagePAth)
+        }else{
+            return ""
+            //print("No Image")
+        }
+    }
+    
+    func removeImageFromDocumentDir(itemName:String) {
+        let fileManager = FileManager.default
+        let nsDocumentDirectory = FileManager.SearchPathDirectory.documentDirectory
+        let nsUserDomainMask = FileManager.SearchPathDomainMask.userDomainMask
+        let paths = NSSearchPathForDirectoriesInDomains(nsDocumentDirectory, nsUserDomainMask, true)
+        guard let dirPath = paths.first else {
+            return
+        }
+        let filePath = "\(dirPath)/\(itemName)"
+        do {
+            try fileManager.removeItem(atPath: filePath)
+        } catch let error as NSError {
+            print(error.debugDescription)
+        }}
     
     /// Stop listening to all notifications.
     internal func muteAllNotiications() {

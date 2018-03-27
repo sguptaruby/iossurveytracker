@@ -40,4 +40,9 @@ internal final class URLConstants: NSObject {
         return baseURL + "/activities/GetMpTags"
     }
 
+    /// activities Update
+    class var Update: String {
+        return baseURL + "/activities/Update"
+    }
+    
 }

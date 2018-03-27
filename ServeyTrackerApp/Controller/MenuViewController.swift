@@ -61,5 +61,14 @@ class MenuViewController: UIViewController {
         view.layer.borderWidth = 1
         view.layer.borderColor = UIColor.lightGray.cgColor
     }
+    
+    @IBAction func btnSyncAction(sender:UIButton) {
+        getAllActivity()
+        if ServeyTrackerManager.share.activityParams.count != 0 {
+            let params = ["activity":ServeyTrackerManager.share.activityParams]
+            print(params)
+            self.updateActivityApiCall(params: params)
+        }
+    }
 
 }

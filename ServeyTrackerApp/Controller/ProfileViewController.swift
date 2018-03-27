@@ -48,6 +48,16 @@ class ProfileViewController: UIViewController {
         mobileTxtField.delegate = self
         firstnameTxtField.delegate = self
         lastnameTxtField.delegate = self
+        let dictuser = self.getAllServeyTrackerUser()
+        emailTxtField.text = dictuser[DictionaryKey.email] as? String ?? ""
+        mobileTxtField.text = dictuser[DictionaryKey.telephone] as? String ?? ""
+        firstnameTxtField.text = dictuser[DictionaryKey.fname] as? String ?? ""
+        lastnameTxtField.text = dictuser[DictionaryKey.lname] as? String ?? ""
+        
+        emailTxtField.isUserInteractionEnabled = false
+        mobileTxtField.isUserInteractionEnabled = false
+        firstnameTxtField.isUserInteractionEnabled = false
+        lastnameTxtField.isUserInteractionEnabled = false
     }
 
 }

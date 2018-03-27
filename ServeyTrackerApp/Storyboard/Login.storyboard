@@ -396,7 +396,7 @@
                                                 </constraints>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JEY-fQ-YmA">
-                                                <rect key="frame" x="20" y="512.5" width="335" height="40"/>
+                                                <rect key="frame" x="20" y="512" width="335" height="40"/>
                                                 <color key="backgroundColor" red="0.039215686270000001" green="0.53725490200000003" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="qai-nl-9na"/>
@@ -420,6 +420,7 @@
                                             <constraint firstItem="Inu-hq-2jm" firstAttribute="top" secondItem="bVX-Ii-u1s" secondAttribute="bottom" constant="20" id="TZw-M9-VcT"/>
                                             <constraint firstItem="5Og-XM-vWg" firstAttribute="top" secondItem="lJu-iH-4jw" secondAttribute="top" constant="44" id="g4n-ba-X67"/>
                                             <constraint firstAttribute="trailing" secondItem="Inu-hq-2jm" secondAttribute="trailing" constant="20" id="jSd-Ex-3J3"/>
+                                            <constraint firstAttribute="bottom" secondItem="JEY-fQ-YmA" secondAttribute="bottom" constant="51" id="nF4-VJ-dqA"/>
                                             <constraint firstItem="bVX-Ii-u1s" firstAttribute="centerX" secondItem="lJu-iH-4jw" secondAttribute="centerX" id="vyX-xh-LQX"/>
                                             <constraint firstItem="5Og-XM-vWg" firstAttribute="centerX" secondItem="lJu-iH-4jw" secondAttribute="centerX" id="vzl-Vr-jQ1"/>
                                         </constraints>
@@ -429,7 +430,7 @@
                                     <constraint firstItem="lJu-iH-4jw" firstAttribute="top" secondItem="b7E-kz-Rk4" secondAttribute="top" id="5HR-aJ-Z6R"/>
                                     <constraint firstItem="lJu-iH-4jw" firstAttribute="width" secondItem="b7E-kz-Rk4" secondAttribute="width" id="CLB-wM-7K2"/>
                                     <constraint firstAttribute="trailing" secondItem="lJu-iH-4jw" secondAttribute="trailing" id="IMQ-DA-qpy"/>
-                                    <constraint firstItem="lJu-iH-4jw" firstAttribute="height" secondItem="b7E-kz-Rk4" secondAttribute="height" id="IqF-4n-l62"/>
+                                    <constraint firstItem="lJu-iH-4jw" firstAttribute="height" secondItem="b7E-kz-Rk4" secondAttribute="height" priority="250" id="IqF-4n-l62"/>
                                     <constraint firstItem="lJu-iH-4jw" firstAttribute="leading" secondItem="b7E-kz-Rk4" secondAttribute="leading" id="W8M-wy-URc"/>
                                     <constraint firstAttribute="bottom" secondItem="lJu-iH-4jw" secondAttribute="bottom" id="t5w-m6-lKr"/>
                                 </constraints>

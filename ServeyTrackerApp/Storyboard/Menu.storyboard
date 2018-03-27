@@ -163,6 +163,9 @@
                                                                             </label>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kEw-vj-xpb">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="152.5" height="135"/>
+                                                                                <connections>
+                                                                                    <action selector="btnSyncActionWithSender:" destination="m7r-nJ-5nf" eventType="touchUpInside" id="Gxw-y8-jci"/>
+                                                                                </connections>
                                                                             </button>
                                                                         </subviews>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -453,7 +456,7 @@ Provisioning App</string>
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </state>
                                                                 <connections>
-                                                                    <segue destination="Y9t-8O-8ZG" kind="show" id="F30-kw-oqh"/>
+                                                                    <action selector="btnNextActionWithSender:" destination="0im-bP-yDu" eventType="touchUpInside" id="crW-0f-zvh"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -517,13 +520,13 @@ Provisioning App</string>
         <!--Hotsopts Screen2VC-->
         <scene sceneID="iNo-69-ucD">
             <objects>
-                <viewController id="Y9t-8O-8ZG" customClass="HotsoptsScreen2VC" customModule="ServeyTrackerApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HotsoptsScreen2VC" id="Y9t-8O-8ZG" customClass="HotsoptsScreen2VC" customModule="ServeyTrackerApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ty0-96-dfN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="EL9-j0-bFI">
-                                <rect key="frame" x="20" y="84" width="335" height="170"/>
+                                <rect key="frame" x="20" y="40" width="335" height="170"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="97k-nz-1Pc">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="85"/>
@@ -605,7 +608,7 @@ Provisioning App</string>
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <segue destination="8aU-Cw-UfX" kind="show" id="aRp-Qc-mmO"/>
+                                            <action selector="btnNextActionWithSender:" destination="Y9t-8O-8ZG" eventType="touchUpInside" id="lKF-PN-UhY"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -614,7 +617,7 @@ Provisioning App</string>
                                 </constraints>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QlV-Vu-NCc">
-                                <rect key="frame" x="0.0" y="254" width="375" height="349"/>
+                                <rect key="frame" x="0.0" y="210" width="375" height="393"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="Y9t-8O-8ZG" id="LY2-Rj-cxq"/>
@@ -650,13 +653,13 @@ Provisioning App</string>
         <!--Hotsopts Screen3VC-->
         <scene sceneID="tvF-xw-2oc">
             <objects>
-                <viewController id="8aU-Cw-UfX" customClass="HotsoptsScreen3VC" customModule="ServeyTrackerApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HotsoptsScreen3VC" id="8aU-Cw-UfX" customClass="HotsoptsScreen3VC" customModule="ServeyTrackerApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="doh-Gn-PVS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fuM-NN-eVX">
-                                <rect key="frame" x="20" y="84" width="335" height="85"/>
+                                <rect key="frame" x="20" y="40" width="335" height="85"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date Witnessed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mXt-ey-kqW">
                                         <rect key="frame" x="0.0" y="10" width="100" height="16"/>
@@ -685,7 +688,10 @@ Provisioning App</string>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Photo Gallery" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qJ4-Re-pqC">
-                                <rect key="frame" x="20" y="189" width="127" height="24"/>
+                                <rect key="frame" x="20" y="145" width="127" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="fTI-GS-Esr"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -723,7 +729,7 @@ Provisioning App</string>
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <segue destination="Ihw-k7-7dR" kind="show" id="gw8-ug-wOh"/>
+                                            <action selector="btnNextActionWithSender:" destination="8aU-Cw-UfX" eventType="touchUpInside" id="qcq-f8-c0f"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -732,30 +738,61 @@ Provisioning App</string>
                                 </constraints>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scannerbg" translatesAutoresizingMaskIntoConstraints="NO" id="IUy-mh-ead">
-                                <rect key="frame" x="37.5" y="233" width="300" height="280"/>
+                                <rect key="frame" x="43" y="190" width="289" height="269"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="IUy-mh-ead" secondAttribute="height" multiplier="15:14" id="o89-6i-s7G"/>
                                 </constraints>
                             </imageView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tmX-Ag-5H0">
+                                <rect key="frame" x="20" y="473" width="335" height="120"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="1M7-n8-bmL"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="8Zd-e0-VCq">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="1RF-fp-CNx">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="8aU-Cw-UfX" id="rU6-Bo-fdu"/>
+                                    <outlet property="delegate" destination="8aU-Cw-UfX" id="j5w-c8-4eb"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="fuM-NN-eVX" firstAttribute="leading" secondItem="vo5-If-Zxc" secondAttribute="leading" constant="20" id="3gm-XZ-Cz4"/>
                             <constraint firstAttribute="trailing" secondItem="fuM-NN-eVX" secondAttribute="trailing" constant="20" id="7z8-3G-zDh"/>
                             <constraint firstItem="fuM-NN-eVX" firstAttribute="top" secondItem="vo5-If-Zxc" secondAttribute="top" constant="20" id="COh-Xe-65b"/>
-                            <constraint firstItem="XZe-0X-VJz" firstAttribute="top" secondItem="IUy-mh-ead" secondAttribute="bottom" constant="90" id="MdA-Ix-oaa"/>
                             <constraint firstItem="IUy-mh-ead" firstAttribute="centerX" secondItem="doh-Gn-PVS" secondAttribute="centerX" id="Ttl-ET-6hx"/>
+                            <constraint firstItem="tmX-Ag-5H0" firstAttribute="leading" secondItem="vo5-If-Zxc" secondAttribute="leading" constant="20" id="XQv-kZ-LrU"/>
                             <constraint firstItem="qJ4-Re-pqC" firstAttribute="leading" secondItem="vo5-If-Zxc" secondAttribute="leading" constant="20" id="cgP-ZF-jeR"/>
                             <constraint firstItem="vo5-If-Zxc" firstAttribute="trailing" secondItem="XZe-0X-VJz" secondAttribute="trailing" constant="10" id="dCX-7Y-YpO"/>
                             <constraint firstItem="vo5-If-Zxc" firstAttribute="bottom" secondItem="XZe-0X-VJz" secondAttribute="bottom" constant="20" id="hV9-zm-4zm"/>
                             <constraint firstItem="IUy-mh-ead" firstAttribute="top" secondItem="qJ4-Re-pqC" secondAttribute="bottom" constant="20" id="huf-76-Lec"/>
+                            <constraint firstItem="XZe-0X-VJz" firstAttribute="top" secondItem="tmX-Ag-5H0" secondAttribute="bottom" constant="10" id="kq9-dK-H9D"/>
                             <constraint firstItem="XZe-0X-VJz" firstAttribute="leading" secondItem="doh-Gn-PVS" secondAttribute="leading" constant="10" id="mNs-iw-byM"/>
+                            <constraint firstItem="vo5-If-Zxc" firstAttribute="trailing" secondItem="tmX-Ag-5H0" secondAttribute="trailing" constant="20" id="sMv-JG-xvF"/>
+                            <constraint firstItem="tmX-Ag-5H0" firstAttribute="top" secondItem="IUy-mh-ead" secondAttribute="bottom" constant="14" id="uGy-VB-h9Y"/>
                             <constraint firstItem="qJ4-Re-pqC" firstAttribute="top" secondItem="fuM-NN-eVX" secondAttribute="bottom" constant="20" id="uua-Hh-6zw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vo5-If-Zxc"/>
                     </view>
                     <connections>
                         <outlet property="dateTXT" destination="oHh-MO-btU" id="hho-VJ-BVH"/>
+                        <outlet property="imgVWCollectionVW" destination="tmX-Ag-5H0" id="Ebb-Rd-XWD"/>
                         <outlet property="imgView" destination="IUy-mh-ead" id="zTU-hD-Pfl"/>
                     </connections>
                 </viewController>
@@ -766,22 +803,30 @@ Provisioning App</string>
         <!--Hotsopts Screen4VC-->
         <scene sceneID="zU9-CA-d1S">
             <objects>
-                <viewController id="Ihw-k7-7dR" customClass="HotsoptsScreen4VC" customModule="ServeyTrackerApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HotsoptsScreen4VC" id="Ihw-k7-7dR" customClass="HotsoptsScreen4VC" customModule="ServeyTrackerApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UL2-YM-l4r">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="0Xb-bM-utr">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6zf-lV-9yj">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="299"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="321"/>
                                         <subviews>
-                                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="VIc-s5-q15">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="299"/>
-                                            </mapView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VOV-3V-IZH" customClass="GMSMapView">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="241"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="p0h-xg-7JK">
+                                                <rect key="frame" x="172" y="145" width="30" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="eyu-CP-wF8"/>
+                                                    <constraint firstAttribute="width" constant="30" id="kGB-T1-bki"/>
+                                                </constraints>
+                                            </imageView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FaB-5C-jrg">
-                                                <rect key="frame" x="0.0" y="219" width="375" height="80"/>
+                                                <rect key="frame" x="0.0" y="241" width="375" height="80"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2460, Jalan Air Panas, Taman Air Panas, 9100 Tawanu,Sabah,Malaysia" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X5n-BM-492">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
@@ -802,17 +847,19 @@ Provisioning App</string>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstItem="p0h-xg-7JK" firstAttribute="centerY" secondItem="6zf-lV-9yj" secondAttribute="centerY" id="0qf-WT-yuG"/>
+                                            <constraint firstAttribute="trailing" secondItem="VOV-3V-IZH" secondAttribute="trailing" id="239-mh-ZBZ"/>
+                                            <constraint firstItem="FaB-5C-jrg" firstAttribute="top" secondItem="VOV-3V-IZH" secondAttribute="bottom" id="4Lb-Ll-tmP"/>
                                             <constraint firstAttribute="trailing" secondItem="FaB-5C-jrg" secondAttribute="trailing" id="517-47-8dF"/>
-                                            <constraint firstItem="VIc-s5-q15" firstAttribute="leading" secondItem="6zf-lV-9yj" secondAttribute="leading" id="NxM-d3-xq7"/>
+                                            <constraint firstItem="VOV-3V-IZH" firstAttribute="top" secondItem="6zf-lV-9yj" secondAttribute="top" id="DuD-Ca-VGg"/>
                                             <constraint firstAttribute="bottom" secondItem="FaB-5C-jrg" secondAttribute="bottom" id="PGO-oL-nlV"/>
-                                            <constraint firstAttribute="trailing" secondItem="VIc-s5-q15" secondAttribute="trailing" id="SqP-5x-26F"/>
+                                            <constraint firstItem="VOV-3V-IZH" firstAttribute="leading" secondItem="6zf-lV-9yj" secondAttribute="leading" id="YJr-yC-JI0"/>
                                             <constraint firstItem="FaB-5C-jrg" firstAttribute="leading" secondItem="6zf-lV-9yj" secondAttribute="leading" id="ero-EL-od3"/>
-                                            <constraint firstAttribute="bottom" secondItem="VIc-s5-q15" secondAttribute="bottom" id="hzs-8d-T0v"/>
-                                            <constraint firstItem="VIc-s5-q15" firstAttribute="top" secondItem="6zf-lV-9yj" secondAttribute="top" id="qMG-IE-NmP"/>
+                                            <constraint firstItem="p0h-xg-7JK" firstAttribute="centerX" secondItem="6zf-lV-9yj" secondAttribute="centerX" id="rZZ-zR-KE0"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MdR-dz-nPa">
-                                        <rect key="frame" x="0.0" y="304" width="375" height="299"/>
+                                        <rect key="frame" x="0.0" y="326" width="375" height="321"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message to Admin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oXr-ml-31q">
                                                 <rect key="frame" x="10" y="10" width="174" height="24"/>
@@ -820,7 +867,7 @@ Provisioning App</string>
                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter Message" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gnH-gE-XuR">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gnH-gE-XuR">
                                                 <rect key="frame" x="10" y="54" width="355" height="50"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -847,7 +894,7 @@ Provisioning App</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="bpL-3j-4Ip">
-                                                <rect key="frame" x="10" y="245" width="355" height="44"/>
+                                                <rect key="frame" x="10" y="267" width="355" height="44"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l3c-cM-QTv">
                                                         <rect key="frame" x="0.0" y="0.0" width="175" height="44"/>
@@ -856,6 +903,9 @@ Provisioning App</string>
                                                         <state key="normal" title="Cancel">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="btnCancelActionWithSender:" destination="Ihw-k7-7dR" eventType="touchUpInside" id="3Kn-ck-8b9"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fh6-KH-aCd">
                                                         <rect key="frame" x="180" y="0.0" width="175" height="44"/>
@@ -864,6 +914,9 @@ Provisioning App</string>
                                                         <state key="normal" title="Save">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="btnSaveActionWithSender:" destination="Ihw-k7-7dR" eventType="touchUpInside" id="hhj-qb-svs"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -902,6 +955,8 @@ Provisioning App</string>
                     </view>
                     <connections>
                         <outlet property="btnCheck" destination="c4k-vE-Hib" id="uxZ-ZH-WTk"/>
+                        <outlet property="lblAddress" destination="X5n-BM-492" id="ZP4-lD-wUQ"/>
+                        <outlet property="mapView" destination="VOV-3V-IZH" id="R6d-7L-gFE"/>
                         <outlet property="messageTXT" destination="gnH-gE-XuR" id="rA3-zx-Esv"/>
                     </connections>
                 </viewController>
@@ -1179,6 +1234,7 @@ Provisioning App</string>
         <image name="clipboard-plus" width="100" height="100"/>
         <image name="clipboard-text" width="100" height="100"/>
         <image name="cloud-sync" width="100" height="100"/>
+        <image name="placeholder" width="32" height="32"/>
         <image name="scannerbg" width="300" height="302"/>
     </resources>
 </document>

@@ -6,7 +6,25 @@
         <attribute name="parentId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="MOBTXNSERVEYS" representedClassName="MOBTXNSERVEYS" syncable="YES">
+        <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="area" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="creationDate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="districtId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dsDivisionId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="images" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="incidentId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="note" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="provinceId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="subIncidentNotes" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userid" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
         <element name="GetMpTags" positionX="-63" positionY="-18" width="128" height="105"/>
+        <element name="MOBTXNSERVEYS" positionX="-54" positionY="18" width="128" height="270"/>
     </elements>
 </model>

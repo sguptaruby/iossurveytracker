@@ -15,7 +15,8 @@ class HotsoptsScreen2VC: UIViewController {
     var categoryVW:CategoryView!
     @IBOutlet weak var tblSubCategory:UITableView!
     var arrSubCategoryData:[GetMpTags] = []
-    
+    var selectedIndexPathArray = Array<IndexPath>()
+    var subIncidentIdArray = Array<String>()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -53,6 +54,32 @@ class HotsoptsScreen2VC: UIViewController {
         tblSubCategory.tableFooterView = UIView(frame: CGRect.zero)
     }
     
+    func validation() -> Bool {
+        if (reportTXT.text?.isEmpty)! {
+            self.showAlert(title: "", message: "Select repot incident")
+            return false
+        }
+        if selectedIndexPathArray.count == 0 {
+            self.showAlert(title: "", message: "Please select sub incident at lest one.")
+            return false
+        }
+        return true
+    }
+    
+    @IBAction func btnNextAction(sender:UIButton) {
+        if validation() {
+            
+            for sip in selectedIndexPathArray {
+                let data = arrSubCategoryData[sip.row]
+                subIncidentIdArray.append("\(data.id)")
+            }
+            let stringRepresentation = subIncidentIdArray.joined(separator: ",")
+            print(subIncidentIdArray)
+        ServeyTrackerManager.share.paramsTnxService[DictionaryKey.subIncidentNotes] = stringRepresentation
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: HotsoptsScreen3VC.stringRepresentation)
+            self.navigationController?.pushViewController(vc!, animated: true)
+        }
+    }
 
 }
 
@@ -72,11 +99,31 @@ extension HotsoptsScreen2VC:UITableViewDelegate,UITableViewDataSource {
         let tagsObj = arrSubCategoryData[indexPath.row] as! GetMpTags
         cell.textLabel?.text = tagsObj.name
         cell.selectionStyle = .none
+        cell.accessoryType = .none
+        for sip in selectedIndexPathArray {
+            if indexPath == sip {
+                cell.accessoryType = .checkmark
+            }
+        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if selectedIndexPathArray.count == 0 {
+            selectedIndexPathArray.append(indexPath)
+        }else{
+            let cell = tableView.cellForRow(at: indexPath)
+            if selectedIndexPathArray.contains(indexPath) {
+                cell?.accessoryType = .none
+                selectedIndexPathArray.remove(at: selectedIndexPathArray.index(of: indexPath)!)
+            }else{
+                selectedIndexPathArray.append(indexPath)
+            }
+            
+        }
         
+       
+        tableView.reloadData()
     }
 }
 
@@ -108,9 +155,11 @@ extension HotsoptsScreen2VC:CategoryViewDelegate {
     func didSelectedData(data: Any, type: String) {
         let getmptag = data as! GetMpTags
         self.showNavigationBar()
+        ServeyTrackerManager.share.paramsTnxService[DictionaryKey.incidentId] = getmptag.id
         reportTXT.text = getmptag.name
         categoryVW.isHidden = true
         let subData = self.getnpTagsIncidentSubData(id: getmptag.parentId)
+        selectedIndexPathArray.removeAll()
         self.arrSubCategoryData = subData
         self.tblSubCategory.reloadData()
     }

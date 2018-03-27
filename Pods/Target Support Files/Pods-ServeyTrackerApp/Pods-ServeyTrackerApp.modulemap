@@ -1,0 +1,6 @@
+framework module Pods_ServeyTrackerApp {
+  umbrella header "Pods-ServeyTrackerApp-umbrella.h"
+
+  export *
+  module * { export * }
+}

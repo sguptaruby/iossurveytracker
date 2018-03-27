@@ -72,22 +72,26 @@ class RegisterViewController: UIViewController {
         firstnameTxtField.delegate = self
         lastnameTxtField.delegate = self
         
-       emailTxtField.text = "sagargupta709@gmail.com"
-       mobileTxtField.text = "8602699798"
-       firstnameTxtField.text = "sagar"
-       lastnameTxtField.text = "gupta"
+//       emailTxtField.text = "sagargupta709@gmail.com"
+//       mobileTxtField.text = "8602699798"
+//       firstnameTxtField.text = "sagar"
+//       lastnameTxtField.text = "gupta"
     }
     func validation() -> Bool {
         if (emailTxtField.text?.isEmpty)! {
+            self.showAlert(title: "", message: "Please enter email.")
             return false
         }
         if (mobileTxtField.text?.isEmpty)! {
+            self.showAlert(title: "", message: "Please enter mobile number.")
             return false
         }
         if (firstnameTxtField.text?.isEmpty)! {
+            self.showAlert(title: "", message: "Please enter first name.")
             return false
         }
         if (lastnameTxtField.text?.isEmpty)! {
+            self.showAlert(title: "", message: "Please enter last name.")
             return false
         }
         return true

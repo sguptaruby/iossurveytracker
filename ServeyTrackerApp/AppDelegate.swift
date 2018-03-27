@@ -9,12 +9,14 @@
 import UIKit
 import CoreData
 import MagicalRecord
+import GoogleMaps
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate {
 
     var window: UIWindow?
-
+    var locationManager: CLLocationManager?
+    var lastLocation : CLLocation!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -30,10 +32,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let result = UserDefaults.standard.value(forKey: "userdict") as! JSONDictionary
             print(result.count)
         }
+ GMSServices.provideAPIKey("AIzaSyCSpJtQgzUN1MMbt_OXwVE9H37Cg7WyWXQ")
+        locationManager = CLLocationManager()
+        locationManager?.delegate = self
+        locationManager?.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager?.requestWhenInUseAuthorization()
+        locationManager?.startUpdatingLocation()
         naviagtionAppreance()
         //MagicalRecord.setupCoreDataStack()
         MagicalRecord.setupCoreDataStack(withAutoMigratingSqliteStoreNamed: "ServeyTrackerApp")
         return true
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error)
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let userLocation = locations.last
+        UserDefaults.standard.set((userLocation!.coordinate.latitude), forKey: "LATVALUE")
+        UserDefaults.standard.set((userLocation!.coordinate.longitude), forKey: "LONVALUE")
+        lastLocation = locations.last! as CLLocation
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -59,6 +78,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Saves changes in the application's managed object context before the application terminates.
         self.saveContext()
     }
+    
     
     func naviagtionAppreance() {
         UINavigationBar.appearance().barTintColor = UIColor(red: 31/255.0, green: 129/255.0, blue: 182/255.0, alpha: 1.0)
