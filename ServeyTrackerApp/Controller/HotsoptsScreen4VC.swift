@@ -171,6 +171,13 @@ extension HotsoptsScreen4VC:UITextViewDelegate {
             textView.textColor = UIColor.lightGray
         }
     }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.text == "Enter Message" {
+            textView.text = ""
+            textView.textColor = UIColor.lightGray
+        }
+    }
 }
 
 extension HotsoptsScreen4VC:CLLocationManagerDelegate {

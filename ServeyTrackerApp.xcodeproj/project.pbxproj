@@ -51,6 +51,13 @@
 		18DB1CDD2064356D008E019E /* HotsoptsScreen2VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DB1CDC2064356D008E019E /* HotsoptsScreen2VC.swift */; };
 		18DB1CDF20643589008E019E /* HotsoptsScreen3VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DB1CDE20643589008E019E /* HotsoptsScreen3VC.swift */; };
 		18DB1CE1206435E5008E019E /* HotsoptsScreen4VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DB1CE0206435E5008E019E /* HotsoptsScreen4VC.swift */; };
+		18E456D2206EA99600B4422B /* Activity SummaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E456D1206EA99600B4422B /* Activity SummaryVC.swift */; };
+		18E456D4206EC09300B4422B /* TUHotSpots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E456D3206EC09300B4422B /* TUHotSpots.swift */; };
+		18E456D6206EC0AC00B4422B /* TUHotSpots.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18E456D5206EC0AC00B4422B /* TUHotSpots.xib */; };
+		18E456D8206ED00700B4422B /* HotspotsImageVW.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E456D7206ED00700B4422B /* HotspotsImageVW.swift */; };
+		18E456DA206ED01300B4422B /* HotspotsImageVW.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18E456D9206ED01300B4422B /* HotspotsImageVW.xib */; };
+		18E456DD206ED28400B4422B /* HotspotsImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E456DB206ED28400B4422B /* HotspotsImageCell.swift */; };
+		18E456DE206ED28400B4422B /* HotspotsImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18E456DC206ED28400B4422B /* HotspotsImageCell.xib */; };
 		18E897C920676ECC00064CC5 /* MBProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E897C820676ECB00064CC5 /* MBProgressHUD.framework */; };
 		18E897CA20676ED800064CC5 /* MBProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E897C820676ECB00064CC5 /* MBProgressHUD.framework */; };
 		18E897CB20676ED800064CC5 /* MBProgressHUD.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18E897C820676ECB00064CC5 /* MBProgressHUD.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -152,6 +159,13 @@
 		18DB1CDC2064356D008E019E /* HotsoptsScreen2VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotsoptsScreen2VC.swift; sourceTree = "<group>"; };
 		18DB1CDE20643589008E019E /* HotsoptsScreen3VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotsoptsScreen3VC.swift; sourceTree = "<group>"; };
 		18DB1CE0206435E5008E019E /* HotsoptsScreen4VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotsoptsScreen4VC.swift; sourceTree = "<group>"; };
+		18E456D1206EA99600B4422B /* Activity SummaryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Activity SummaryVC.swift"; sourceTree = "<group>"; };
+		18E456D3206EC09300B4422B /* TUHotSpots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TUHotSpots.swift; sourceTree = "<group>"; };
+		18E456D5206EC0AC00B4422B /* TUHotSpots.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TUHotSpots.xib; sourceTree = "<group>"; };
+		18E456D7206ED00700B4422B /* HotspotsImageVW.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotspotsImageVW.swift; sourceTree = "<group>"; };
+		18E456D9206ED01300B4422B /* HotspotsImageVW.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HotspotsImageVW.xib; sourceTree = "<group>"; };
+		18E456DB206ED28400B4422B /* HotspotsImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotspotsImageCell.swift; sourceTree = "<group>"; };
+		18E456DC206ED28400B4422B /* HotspotsImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HotspotsImageCell.xib; sourceTree = "<group>"; };
 		18E897C820676ECB00064CC5 /* MBProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MBProgressHUD.framework; sourceTree = "<group>"; };
 		18E897CD2067807200064CC5 /* ServeyTrackerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServeyTrackerManager.swift; sourceTree = "<group>"; };
 		18E897DD2067ABF100064CC5 /* GetMpTags+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GetMpTags+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -205,6 +219,8 @@
 				1890F6F620688E4200EE0B06 /* ImageCollectionViewCell.xib */,
 				18A49E5A206DD5970065DF17 /* HistoryTableViewCell.swift */,
 				18A49E5B206DD5970065DF17 /* HistoryTableViewCell.xib */,
+				18E456DB206ED28400B4422B /* HotspotsImageCell.swift */,
+				18E456DC206ED28400B4422B /* HotspotsImageCell.xib */,
 			);
 			path = CoustomCell;
 			sourceTree = "<group>";
@@ -351,6 +367,10 @@
 			children = (
 				18BA127E206816BD00EE087E /* CategoryView.swift */,
 				18BA1280206816CD00EE087E /* CategoryView.xib */,
+				18E456D3206EC09300B4422B /* TUHotSpots.swift */,
+				18E456D5206EC0AC00B4422B /* TUHotSpots.xib */,
+				18E456D7206ED00700B4422B /* HotspotsImageVW.swift */,
+				18E456D9206ED01300B4422B /* HotspotsImageVW.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -367,6 +387,7 @@
 				18DB1CE0206435E5008E019E /* HotsoptsScreen4VC.swift */,
 				1866533220659D72009F78F6 /* ProfileViewController.swift */,
 				185BA00E20661CCE00FB3FCB /* HistoryViewController.swift */,
+				18E456D1206EA99600B4422B /* Activity SummaryVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -524,13 +545,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18E456D6206EC0AC00B4422B /* TUHotSpots.xib in Resources */,
 				18BA1281206816CD00EE087E /* CategoryView.xib in Resources */,
 				18C2062B2062C5A600679B42 /* Info.plist in Resources */,
 				18C205E92062C53F00679B42 /* LaunchScreen.storyboard in Resources */,
 				18C205E62062C53F00679B42 /* Assets.xcassets in Resources */,
+				18E456DA206ED01300B4422B /* HotspotsImageVW.xib in Resources */,
 				18C2063B2062EDD500679B42 /* Menu.storyboard in Resources */,
 				18C206302062C7A000679B42 /* Login.storyboard in Resources */,
 				1890F6F820688E4200EE0B06 /* ImageCollectionViewCell.xib in Resources */,
+				18E456DE206ED28400B4422B /* HotspotsImageCell.xib in Resources */,
 				18A49E5D206DD5970065DF17 /* HistoryTableViewCell.xib in Resources */,
 				18C205E12062C53F00679B42 /* Main.storyboard in Resources */,
 			);
@@ -616,8 +640,10 @@
 				18ED82FE206BBBE60077739F /* AlmofireClientApi.swift in Sources */,
 				185BA00F20661CCE00FB3FCB /* HistoryViewController.swift in Sources */,
 				18DB1CDB20642EE0008E019E /* UITextFieldExtension.swift in Sources */,
+				18E456D4206EC09300B4422B /* TUHotSpots.swift in Sources */,
 				18C2063D2062EE0500679B42 /* MenuViewController.swift in Sources */,
 				18C205E42062C53F00679B42 /* ServeyTrackerApp.xcdatamodeld in Sources */,
+				18E456D2206EA99600B4422B /* Activity SummaryVC.swift in Sources */,
 				18C2062A2062C5A600679B42 /* Reachability.swift in Sources */,
 				18A49E5C206DD5970065DF17 /* HistoryTableViewCell.swift in Sources */,
 				1866533320659D72009F78F6 /* ProfileViewController.swift in Sources */,
@@ -639,7 +665,9 @@
 				18C206392062EA9E00679B42 /* RegisterViewController.swift in Sources */,
 				18C206292062C5A600679B42 /* URLConstants.swift in Sources */,
 				18C206212062C5A600679B42 /* UIViewControllerExtesnsion.swift in Sources */,
+				18E456D8206ED00700B4422B /* HotspotsImageVW.swift in Sources */,
 				18C206322062C7EF00679B42 /* LoginViewController.swift in Sources */,
+				18E456DD206ED28400B4422B /* HotspotsImageCell.swift in Sources */,
 				18C206272062C5A600679B42 /* APIClient.swift in Sources */,
 				18E897E02067ABF100064CC5 /* GetMpTags+CoreDataProperties.swift in Sources */,
 			);

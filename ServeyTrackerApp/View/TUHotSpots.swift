@@ -1,49 +1,26 @@
 //
-//  HistoryViewController.swift
+//  TUHotSpots.swift
 //  ServeyTrackerApp
 //
-//  Created by Apple on 24/03/18.
+//  Created by Apple on 31/03/18.
 //  Copyright © 2018 Apple. All rights reserved.
 //
 
 import UIKit
 
-class HistoryViewController: UIViewController {
+class TUHotSpots: UIView {
     
     @IBOutlet weak var searchLoctionTXT:UITextField!
     @IBOutlet weak var tblHistory:UITableView!
-    var arrgetMp = Array<MOBTXNSERVEYS>()
-    var searcharrgetMp = Array<MOBTXNSERVEYS>()
-    
+    var activity:MOBTXNSERVEYS!
+    var arrgetMp = Array<GetMpTags>()
+    var searcharrgetMp = Array<GetMpTags>()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        defaultConfigure()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.showNavigationBar()
-        self.backButton(image: "back")
-        self.navigationItem.title = "History"
-        arrgetMp = MOBTXNSERVEYS.mr_findAll() as! [MOBTXNSERVEYS]
-        searcharrgetMp =  arrgetMp
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    func defaultConfigure() {
+    override func awakeFromNib() {
+        super.awakeFromNib()
         searchLoctionTXT.setTextFieldBoader()
         searchLoctionTXT.setLeftPaddingPoints(10)
         searchLoctionTXT.setRightViewImage(imageName: "search")
-        searchLoctionTXT.delegate = self
-        
         tblHistory.register(UINib(nibName: HistoryTableViewCell.stringRepresentation, bundle: nil), forCellReuseIdentifier: HistoryTableViewCell.stringRepresentation)
         tblHistory.tableFooterView = UIView(frame: CGRect.zero)
         searchLoctionTXT.addTarget(self, action: #selector(searchRecordsAsPerText(_ :)), for: .editingChanged)
@@ -51,11 +28,23 @@ class HistoryViewController: UIViewController {
         
     }
     
+    func setActivityData(activity:MOBTXNSERVEYS)  {
+        let arrIncedent = activity.subIncidentNotes?.components(separatedBy: ",")
+        for id in arrIncedent! {
+            let idint = Int(id)
+            let resultPredicate = NSPredicate(format: "id == %d", idint!)
+            let arrObj = GetMpTags.mr_findAll(with: resultPredicate) as! [GetMpTags]
+            arrgetMp.append(arrObj.first!)
+        }
+        searcharrgetMp = arrgetMp
+        tblHistory.reloadData()
+    }
+    
     @objc func searchRecordsAsPerText(_ textfield:UITextField) {
         searcharrgetMp.removeAll()
         if textfield.text?.count != 0 {
             for acitivty in arrgetMp {
-                let range = acitivty.area?.lowercased().range(of: textfield.text!, options: .caseInsensitive, range: nil,   locale: nil)
+                let range = acitivty.name?.lowercased().range(of: textfield.text!, options: .caseInsensitive, range: nil,   locale: nil)
                 
                 if range != nil {
                     searcharrgetMp.append(acitivty)
@@ -67,10 +56,9 @@ class HistoryViewController: UIViewController {
         
         tblHistory.reloadData()
     }
-
 }
 
-extension HistoryViewController:UITableViewDelegate,UITableViewDataSource {
+extension TUHotSpots:UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return searcharrgetMp.count
     }
@@ -82,20 +70,18 @@ extension HistoryViewController:UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: HistoryTableViewCell.stringRepresentation) as! HistoryTableViewCell
         let activity = searcharrgetMp[indexPath.row]
-        cell.lblDate.text = "\(activity.date ?? "") - \(activity.area ?? "")"
+        cell.lblDate.text = activity.name
         cell.selectionStyle = .none
+        cell.accessoryType = .checkmark
+        cell.layer.cornerRadius = 10
+        cell.contentVW.layer.borderWidth = 0
+        cell.contentVW.layer.cornerRadius = 0
+        cell.contentVW.layer.borderColor = UIColor.clear.cgColor
+        cell.contentVW.backgroundColor = UIColor.white
+//        cell.layer.borderWidth = 1
+//        cell.layer.cornerRadius = 10
+//        cell.layer.borderColor = UIColor.darkGray.cgColor
         return cell
     }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "Activity_SummaryVC") as! Activity_SummaryVC
-        vc.activity = searcharrgetMp[indexPath.row]
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
-}
 
-extension HistoryViewController:UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        return textField.resignFirstResponder()
-    }
 }
