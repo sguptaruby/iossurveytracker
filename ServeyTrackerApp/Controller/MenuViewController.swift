@@ -19,7 +19,8 @@ class MenuViewController: UIViewController {
     @IBOutlet weak var syncLBL:UILabel!
     @IBOutlet weak var historyLBL:UILabel!
     @IBOutlet weak var hotspotsLBL:UILabel!
-
+    var imageData = Array<Data>()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -68,6 +69,16 @@ class MenuViewController: UIViewController {
             let params = ["activity":ServeyTrackerManager.share.activityParams]
             print(params)
             self.updateActivityApiCall(params: params)
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(5), execute: {
+                for strImageName in ServeyTrackerManager.share.arrImages {
+                    let imageStr = self.getImage(imgName: strImageName)
+                    let imag = UIImage(contentsOfFile: imageStr!)
+                    let imgdata = UIImageJPEGRepresentation(imag!, 0.5)
+                    self.imageData.append(imgdata!)
+                    self.updateActivityImagesApiCall(imageData: self.imageData, imageName: ServeyTrackerManager.share.arrImages)
+                }
+            })
+
         }
     }
 

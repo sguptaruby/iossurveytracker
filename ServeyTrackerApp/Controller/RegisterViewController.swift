@@ -40,6 +40,7 @@ class RegisterViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.showNavigationBar()
+        self.navigationItem.title = "Registration"
         let users = self.getAllServeyTrackerUser()
         if users.count == 0 {
             self.navigationItem.hidesBackButton = true
@@ -71,6 +72,8 @@ class RegisterViewController: UIViewController {
         mobileTxtField.delegate = self
         firstnameTxtField.delegate = self
         lastnameTxtField.delegate = self
+        emailTxtField.addDoneButton()
+        mobileTxtField.addDoneButton()
         
 //       emailTxtField.text = "sagargupta709@gmail.com"
 //       mobileTxtField.text = "8602699798"

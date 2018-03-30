@@ -31,6 +31,7 @@ class ProfileViewController: UIViewController {
         super.viewWillAppear(animated)
         self.showNavigationBar()
         self.backButton(image: "back")
+        self.navigationItem.title = "User Profile"
     }
     
     func defaultConfigure() {

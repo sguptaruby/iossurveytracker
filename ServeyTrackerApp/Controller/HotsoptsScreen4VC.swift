@@ -18,7 +18,7 @@ class HotsoptsScreen4VC: UIViewController {
     @IBOutlet weak var mapView: GMSMapView!
     var latitude: Double = 0
     var longitude: Double = 0
-    
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var locationManager: CLLocationManager?
     var lastLocation : CLLocation!
     
@@ -32,6 +32,7 @@ class HotsoptsScreen4VC: UIViewController {
         self.backButton(image: "back")
         _ = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(self.loadMapView), userInfo: nil, repeats: false)
         lblAddress.text = ""
+        self.navigationItem.title = "Create Hotspot"
     }
     
     override func didReceiveMemoryWarning() {
@@ -87,8 +88,20 @@ class HotsoptsScreen4VC: UIViewController {
             let uuid = UUID().uuidString
             let id = uuid + "\(Date.init().ticks)"
             ServeyTrackerManager.share.paramsTnxService[DictionaryKey.id] = id
-            ServeyTrackerManager.share.paramsTnxService[DictionaryKey.latitude] = latitude
-            ServeyTrackerManager.share.paramsTnxService[DictionaryKey.longitude] = longitude
+            var lat:Double!
+            if latitude != 0.0 {
+                lat = latitude
+            }else{
+                lat = appDelegate.lastLocation.coordinate.latitude
+            }
+            var log:Double!
+            if longitude != 0.0 {
+                log = longitude
+            }else{
+                log = appDelegate.lastLocation.coordinate.longitude
+            }
+            ServeyTrackerManager.share.paramsTnxService[DictionaryKey.latitude] = lat
+            ServeyTrackerManager.share.paramsTnxService[DictionaryKey.longitude] = log
 //            self.view.showHUD()
 //            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4), execute: {
 //
@@ -135,7 +148,7 @@ class HotsoptsScreen4VC: UIViewController {
     
     @objc func loadMapView()
     {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
         if appDelegate.lastLocation != nil {
             latitude = appDelegate.lastLocation.coordinate.latitude
             longitude = appDelegate.lastLocation.coordinate.longitude

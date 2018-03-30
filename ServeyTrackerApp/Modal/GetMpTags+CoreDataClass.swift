@@ -36,16 +36,16 @@ public class GetMpTags: NSManagedObject {
         if let user_id : Int = aDictionary["Id"] as? Int {
             let id = "\(user_id)"
             let objUser : GetMpTags = GetMpTags.findOrCreateByIDInContext( anID: id , localContext: localContext)
-            objUser.id = id
+            objUser.id = user_id
             
             if let type : Int = aDictionary["Type"] as? Int {
                 let typ = "\(type)"
                 objUser.type = typ
             }
             
-            if let parentId : Int64 = aDictionary["ParentId"] as? Int64 {
+            if let parentId : Int = aDictionary["ParentId"] as? Int {
                 let pentId = "\(parentId)"
-                objUser.parentId = pentId
+                objUser.parentId = parentId
             }
             
             if let name : String = aDictionary["Name"] as? String {

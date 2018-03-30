@@ -26,6 +26,7 @@ class HotsoptsScreen3VC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.backButton(image: "back")
+        self.navigationItem.title = "Create Hotspot"
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,7 +41,7 @@ class HotsoptsScreen3VC: UIViewController {
         datePicker.datePickerMode = .date
         datePicker.addTarget(self, action: #selector(donedatePicker), for: .valueChanged)
         dateTXT.inputView = datePicker
-        dateTXT.addDoneButton()
+    
         imagePicker.delegate = self
         
         imgVWCollectionVW.register(UINib(nibName: ImageCollectionViewCell.stringRepresentation, bundle: nil), forCellWithReuseIdentifier: ImageCollectionViewCell.stringRepresentation)
@@ -51,6 +52,13 @@ class HotsoptsScreen3VC: UIViewController {
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 5
         imgVWCollectionVW!.collectionViewLayout = layout
+        
+        let keyboardToolbar = UIToolbar()
+        keyboardToolbar.sizeToFit()
+        let flexBarButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let doneBarButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneAction))
+        keyboardToolbar.items = [flexBarButton, doneBarButton]
+        dateTXT.inputAccessoryView = keyboardToolbar
     }
     
     @objc func donedatePicker(){
@@ -59,6 +67,17 @@ class HotsoptsScreen3VC: UIViewController {
         formatter.dateFormat = "yyyy-MM-dd"
         dateTXT.text = formatter.string(from: datePicker.date)
         //dismiss date picker dialog
+        //self.view.endEditing(true)
+    }
+    
+    @objc func doneAction(){
+        if (dateTXT.text?.isEmpty)! {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd"
+            dateTXT.text = formatter.string(from: Date())
+            //dismiss date picker dialog
+        }
+        //For date formate
         self.view.endEditing(true)
     }
     
@@ -80,7 +99,7 @@ class HotsoptsScreen3VC: UIViewController {
                print(stringRepresentation)
             
             ServeyTrackerManager.share.paramsTnxService[DictionaryKey.date] = dateTXT.text
-            ServeyTrackerManager.share.paramsTnxService[DictionaryKey.subIncidentNotes] = stringRepresentation
+            ServeyTrackerManager.share.paramsTnxService[DictionaryKey.activityImage] = stringRepresentation
             
             let vc = self.storyboard?.instantiateViewController(withIdentifier: HotsoptsScreen4VC.stringRepresentation)
             self.navigationController?.pushViewController(vc!, animated: true)

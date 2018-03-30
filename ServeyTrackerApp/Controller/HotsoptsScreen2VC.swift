@@ -15,6 +15,7 @@ class HotsoptsScreen2VC: UIViewController {
     var categoryVW:CategoryView!
     @IBOutlet weak var tblSubCategory:UITableView!
     var arrSubCategoryData:[GetMpTags] = []
+    var searchsubCategory = Array<GetMpTags>()
     var selectedIndexPathArray = Array<IndexPath>()
     var subIncidentIdArray = Array<String>()
     override func viewDidLoad() {
@@ -27,6 +28,7 @@ class HotsoptsScreen2VC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.backButton(image: "back")
+        self.navigationItem.title = "Create Hotspot"
     }
 
     override func didReceiveMemoryWarning() {
@@ -48,10 +50,30 @@ class HotsoptsScreen2VC: UIViewController {
         categoryVW.lbltilte.text = "Provision"
         categoryVW.isHidden = true
         categoryVW.delegate = self
+        reportTXT.tintColor = UIColor.clear
+        applyTXT.tintColor = UIColor.clear
         self.view.addSubview(categoryVW)
         self.view.bringSubview(toFront: categoryVW)
         tblSubCategory.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tblSubCategory.tableFooterView = UIView(frame: CGRect.zero)
+        applyTXT.addTarget(self, action: #selector(searchRecordsAsPerText(_ :)), for: .editingChanged)
+    }
+    
+    @objc func searchRecordsAsPerText(_ textfield:UITextField) {
+        searchsubCategory.removeAll()
+        if textfield.text?.count != 0 {
+            for maptag in arrSubCategoryData {
+                let range = maptag.name?.lowercased().range(of: textfield.text!, options: .caseInsensitive, range: nil,   locale: nil)
+                
+                if range != nil {
+                    searchsubCategory.append(maptag)
+                }
+            }
+        } else {
+            searchsubCategory = arrSubCategoryData
+        }
+        
+        tblSubCategory.reloadData()
     }
     
     func validation() -> Bool {
@@ -70,7 +92,7 @@ class HotsoptsScreen2VC: UIViewController {
         if validation() {
             
             for sip in selectedIndexPathArray {
-                let data = arrSubCategoryData[sip.row]
+                let data = searchsubCategory[sip.row]
                 subIncidentIdArray.append("\(data.id)")
             }
             let stringRepresentation = subIncidentIdArray.joined(separator: ",")
@@ -87,7 +109,7 @@ extension HotsoptsScreen2VC:UITableViewDelegate,UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arrSubCategoryData.count
+        return self.searchsubCategory.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -95,17 +117,17 @@ extension HotsoptsScreen2VC:UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! UITableViewCell
-        let tagsObj = arrSubCategoryData[indexPath.row] as! GetMpTags
-        cell.textLabel?.text = tagsObj.name
-        cell.selectionStyle = .none
-        cell.accessoryType = .none
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
+        let tagsObj = self.searchsubCategory[indexPath.row]
+        cell?.textLabel?.text = tagsObj.name
+        cell?.selectionStyle = .none
+        cell?.accessoryType = .none
         for sip in selectedIndexPathArray {
             if indexPath == sip {
-                cell.accessoryType = .checkmark
+                cell?.accessoryType = .checkmark
             }
         }
-        return cell
+        return cell!
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -121,8 +143,6 @@ extension HotsoptsScreen2VC:UITableViewDelegate,UITableViewDataSource {
             }
             
         }
-        
-       
         tableView.reloadData()
     }
 }
@@ -142,6 +162,8 @@ extension HotsoptsScreen2VC:UITextFieldDelegate {
             categoryVW.lbltilte.text = "Reported Incident"
             categoryVW.isHidden = false
             textField.resignFirstResponder()
+        }else{
+            textField.becomeFirstResponder()
         }
     }
 }
@@ -158,9 +180,10 @@ extension HotsoptsScreen2VC:CategoryViewDelegate {
         ServeyTrackerManager.share.paramsTnxService[DictionaryKey.incidentId] = getmptag.id
         reportTXT.text = getmptag.name
         categoryVW.isHidden = true
-        let subData = self.getnpTagsIncidentSubData(id: getmptag.parentId)
+        let subData = self.getnpTagsIncidentSubData(id: getmptag.id)
         selectedIndexPathArray.removeAll()
         self.arrSubCategoryData = subData
+        self.searchsubCategory = self.arrSubCategoryData
         self.tblSubCategory.reloadData()
     }
 }

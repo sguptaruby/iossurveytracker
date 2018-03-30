@@ -21,7 +21,7 @@ class ServeyTrackerManager: NSObject {
     var activityImage = ["fileNameList":[""]]
     var activityIncident = ["incidentIdList":[""]]
     
-    var dictactivity = ["IncidentId":"","Notes":"","creationDate":"","activityImage":JSONDictionary(),"activityIncident":JSONDictionary(),"Latitude":"","Longitude":"","DistrictId":"","ProvinceId":"","UserId":"","SubIncidentNotes":"","DSDivisionId":"","City":""] as [String : Any]
+    var dictactivity = ["IncidentId":"","Notes":"","creationDate":"","activityImage":JSONDictionary(),"activityIncident":JSONDictionary(),"Latitude":0.0,"Longitude":0.0,"DistrictId":"","ProvinceId":"","UserId":"","SubIncidentNotes":"","DSDivisionId":"","City":""] as [String : Any]
     
 
 }
@@ -48,4 +48,6 @@ final class DictionaryKey {
     static let note = "note"
     static let provinceId = "provinceId"
     static let subIncidentNotes = "subIncidentNotes"
+    static let activityImage = "activityImage"
+    
 }

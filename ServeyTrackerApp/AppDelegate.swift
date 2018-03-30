@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate 
         let hasLaunchedKey = "HasLaunched"
         let defaults = UserDefaults.standard
         let hasLaunched = defaults.bool(forKey: hasLaunchedKey)
-        
+        naviagtionAppreance()
         if !hasLaunched {
             defaults.set(true, forKey: hasLaunchedKey)
             let dict:[String:String] = [:]
@@ -38,7 +38,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate 
         locationManager?.desiredAccuracy = kCLLocationAccuracyBest
         locationManager?.requestWhenInUseAuthorization()
         locationManager?.startUpdatingLocation()
-        naviagtionAppreance()
         //MagicalRecord.setupCoreDataStack()
         MagicalRecord.setupCoreDataStack(withAutoMigratingSqliteStoreNamed: "ServeyTrackerApp")
         return true
@@ -83,6 +82,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate 
     func naviagtionAppreance() {
         UINavigationBar.appearance().barTintColor = UIColor(red: 31/255.0, green: 129/255.0, blue: 182/255.0, alpha: 1.0)
         UINavigationBar.appearance().tintColor = UIColor.white
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.white]
     }
 
     // MARK: - Core Data stack

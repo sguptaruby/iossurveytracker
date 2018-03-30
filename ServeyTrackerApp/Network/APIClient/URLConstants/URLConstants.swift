@@ -43,6 +43,11 @@ internal final class URLConstants: NSObject {
     /// activities Update
     class var Update: String {
         return baseURL + "/activities/Update"
+    }//
+    
+    /// ImageUpload Update
+    class var ImageUpload: String {
+        return baseURL + "/activities/ImageUpload"
     }
     
 }

@@ -17,9 +17,9 @@ extension GetMpTags {
         return NSFetchRequest<GetMpTags>(entityName: "GetMpTags")
     }
 
-    @NSManaged public var id: String
+    @NSManaged public var id: Int
     @NSManaged public var type: String
-    @NSManaged public var parentId: String
+    @NSManaged public var parentId: Int
     @NSManaged public var name: String?
 
 }

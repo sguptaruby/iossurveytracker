@@ -64,7 +64,7 @@ public class MOBTXNSERVEYS: NSManagedObject {
                 mobServey.dsDivisionId = dsDivisionId
             }
             
-            if let images : String = aDictionary[DictionaryKey.images] as? String {
+            if let images : String = aDictionary[DictionaryKey.activityImage] as? String {
                 mobServey.images = images
             }
             
@@ -77,7 +77,7 @@ public class MOBTXNSERVEYS: NSManagedObject {
             }
             
             if let longitude : Double = aDictionary[DictionaryKey.longitude] as? Double {
-                mobServey.latitude = longitude
+                mobServey.longitude = longitude
             }
             
             if let note : String = aDictionary[DictionaryKey.note] as? String {

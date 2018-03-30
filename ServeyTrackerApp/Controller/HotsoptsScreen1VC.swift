@@ -34,6 +34,7 @@ class HotsoptsScreen1VC: UIViewController {
         super.viewWillAppear(animated)
         self.showNavigationBar()
         self.backButton(image: "back")
+        self.title = "Create Hotspot"
     }
     
     override func viewDidLayoutSubviews() {
@@ -62,6 +63,9 @@ class HotsoptsScreen1VC: UIViewController {
         categoryVW.lbltilte.text = "Provision"
         categoryVW.isHidden = true
         categoryVW.delegate = self
+        provinceTXT.tintColor = UIColor.clear
+        districtTXT.tintColor = UIColor.clear
+        divisionTXT.tintColor = UIColor.clear
         self.view.addSubview(categoryVW)
         self.view.bringSubview(toFront: categoryVW)
     }
@@ -144,11 +148,11 @@ extension HotsoptsScreen1VC:CategoryViewDelegate {
         if type == "Provision" {
             provinceTXT.text = getmptag.name
             ServeyTrackerManager.share.paramsTnxService[DictionaryKey.provinceId] = getmptag.id
-            ServeyTrackerManager.share.selectedDistrictID = getmptag.id
+            ServeyTrackerManager.share.selectedDistrictID = "\(getmptag.id)"
         }
         if type == "District" {
             ServeyTrackerManager.share.paramsTnxService[DictionaryKey.districtId] = getmptag.id
-            ServeyTrackerManager.share.selectedDivisonID  = getmptag.id
+            ServeyTrackerManager.share.selectedDivisonID  =  "\(getmptag.id)"
             districtTXT.text = getmptag.name
         }
         if type == "DS Divison" {

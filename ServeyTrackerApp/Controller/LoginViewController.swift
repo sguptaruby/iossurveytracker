@@ -40,6 +40,10 @@ class LoginViewController: UIViewController {
         if users.count == 0 {
             let vc = self.storyboard?.instantiateViewController(withIdentifier:RegisterViewController.stringRepresentation)
             self.navigationController?.pushViewController(vc!, animated: false)
+        }else{
+//            let menustoryboard = UIStoryboard.init(name: "Menu", bundle: nil)
+//            let vc = menustoryboard.instantiateViewController(withIdentifier: MenuViewController.stringRepresentation) as! MenuViewController
+//            self.navigationController?.pushViewController(vc, animated: true)
         }
         defaultConfigure()
     }
@@ -52,7 +56,13 @@ class LoginViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.hideNavigationBar()
-        self.getMpTagsApiCall()
+        //self.getMpTagsApiCall()
+        
+        let users = self.getAllServeyTrackerUser()
+        if users.count != 0 {
+            emailTxtField.text = users[DictionaryKey.email] as? String ?? ""
+            mobileTxtField.text = users[DictionaryKey.telephone] as? String ?? ""
+        }
     }
     
     func defaultConfigure()  {
@@ -74,6 +84,9 @@ class LoginViewController: UIViewController {
         emailTxtField.delegate = self
         mobileTxtField.delegate = self
         verificationTxtField.delegate = self
+        emailTxtField.addDoneButton()
+        mobileTxtField.addDoneButton()
+        verificationTxtField.addDoneButton()
     }
     
     func validation() -> Bool {

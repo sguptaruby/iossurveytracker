@@ -188,17 +188,18 @@ extension UIViewController {
             ServeyTrackerManager.share.dictactivity["IncidentId"] = activity.incidentId
             ServeyTrackerManager.share.dictactivity["Notes"] = activity.note
             ServeyTrackerManager.share.dictactivity["creationDate"] = activity.creationDate
-            ServeyTrackerManager.share.dictactivity["Latitude"] = "\(activity.latitude)"
-            ServeyTrackerManager.share.dictactivity["Longitude"] = "\(activity.longitude)"
+            ServeyTrackerManager.share.dictactivity["Latitude"] = activity.latitude
+            ServeyTrackerManager.share.dictactivity["Longitude"] = activity.longitude
             
             ServeyTrackerManager.share.dictactivity["DistrictId"] = activity.districtId
             ServeyTrackerManager.share.dictactivity["ProvinceId"] = activity.provinceId
             ServeyTrackerManager.share.dictactivity["UserId"] = activity.userid
-            ServeyTrackerManager.share.dictactivity["SubIncidentNotes"] = activity.subIncidentNotes
+            let incident1 = activity.subIncidentNotes?.components(separatedBy: ",")
+            ServeyTrackerManager.share.dictactivity["SubIncidentNotes"] = incident1
             ServeyTrackerManager.share.dictactivity["DSDivisionId"] = activity.dsDivisionId
             ServeyTrackerManager.share.dictactivity["City"] = activity.address
-            let arrImages = activity.images?.components(separatedBy: ",")
-            let dict = ["fileNameList":arrImages]
+            ServeyTrackerManager.share.arrImages = (activity.images?.components(separatedBy: ","))!
+            let dict = ["fileNameList":ServeyTrackerManager.share.arrImages]
             ServeyTrackerManager.share.dictactivity["activityImage"] = dict
             let incident = activity.subIncidentNotes?.components(separatedBy: ",")
             let dictIncident = ["incidentIdList":incident]
@@ -220,32 +221,44 @@ extension UIViewController {
         }
     }
     
+    func updateActivityImagesApiCall(imageData:[Data],imageName:[String]) {
+        self.view.showHUD()
+        AlmofireClientApi.init().multipleImageUploading(imagesData: imageData, imagesName: imageName, url: URLConstants.ImageUpload) { (Json,error) in
+            if let json = Json {
+                print(json)
+            }else{
+                print(error.debugDescription)
+            }
+            self.view.hideHUD()
+        }
+    }
+    
     func getnpTagsProvisionData(id:String) -> [GetMpTags] {
-        let resultPredicate = NSPredicate(format: "type contains[c] %@", id)
+        let resultPredicate = NSPredicate(format: "type == %@", id)
         let arrgetMp = GetMpTags.mr_findAll(with: resultPredicate) as! [GetMpTags]
         return arrgetMp
     }
     
     func getnpTagsDistrictData(id:String) -> [GetMpTags] {
-        let resultPredicate = NSPredicate(format: "parentId contains[c] %@", id)
+        let resultPredicate = NSPredicate(format: "parentId == %@", id)
         let arrgetMp = GetMpTags.mr_findAll(with: resultPredicate) as! [GetMpTags]
         return arrgetMp
     }
     
     func getnpTagsDivisonData(id:String) -> [GetMpTags] {
-        let resultPredicate = NSPredicate(format: "parentId contains[c] %@", id)
+        let resultPredicate = NSPredicate(format: "parentId == %@", id)
         let arrgetMp = GetMpTags.mr_findAll(with: resultPredicate) as! [GetMpTags]
         return arrgetMp
     }
     
     func getnpTagsIncidentData(id:String) -> [GetMpTags] {
-        let resultPredicate = NSPredicate(format: "type contains[c] %@", id)
+        let resultPredicate = NSPredicate(format: "type == %@", id)
         let arrgetMp = GetMpTags.mr_findAll(with: resultPredicate) as! [GetMpTags]
         return arrgetMp
     }
     
-    func getnpTagsIncidentSubData(id:String) -> [GetMpTags] {
-        let resultPredicate = NSPredicate(format: "parentId contains[c] %@", id)
+    func getnpTagsIncidentSubData(id:Int) -> [GetMpTags] {
+        let resultPredicate = NSPredicate(format: "parentId == %d", id)
         let arrgetMp = GetMpTags.mr_findAll(with: resultPredicate) as! [GetMpTags]
         return arrgetMp
     }
