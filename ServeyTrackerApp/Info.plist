@@ -4,8 +4,12 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleDisplayName</key>
+	<string>TU Hotspots</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleGetInfoString</key>
+	<string>This app requires access to the photo library</string>
 	<key>CFBundleIdentifier</key>
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -15,9 +19,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>1.0.4</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>5</string>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -26,9 +32,19 @@
 		<true/>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string>$(PRODUCT_NAME) Camera </string>
-	<key>Photo Library Usage Description</key>
-	<string>$(PRODUCT_NAME) Photo Library </string>
+	<string>Need to access your camera to capture a picture of activities</string>
+	<key>NSHumanReadableCopyright</key>
+	<string></string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>app want to access your location to get current location address and latitude and longitude</string>
+	<key>NSLocationUsageDescription</key>
+	<string>This app requires access activity location details with latitide and longitude</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>app want to access your location to get current location address and latitude and longitude</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Need to access your image gallery to browse a picture of activities</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>This app requires access to the photo library to access activity images</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -48,9 +64,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>app want to access your location</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>app want to access your location</string>
 </dict>
 </plist>

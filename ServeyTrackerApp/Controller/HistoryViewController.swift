@@ -27,7 +27,7 @@ class HistoryViewController: UIViewController {
         super.viewWillAppear(animated)
         self.showNavigationBar()
         self.backButton(image: "back")
-        self.navigationItem.title = "History"
+        self.navigationItem.title = "My previous reports"
         arrgetMp = MOBTXNSERVEYS.mr_findAll() as! [MOBTXNSERVEYS]
         searcharrgetMp =  arrgetMp
     }

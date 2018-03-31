@@ -28,7 +28,7 @@ class HotsoptsScreen2VC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.backButton(image: "back")
-        self.navigationItem.title = "Create Hotspot"
+        self.navigationItem.title = "Report HotSpot"
     }
 
     override func didReceiveMemoryWarning() {

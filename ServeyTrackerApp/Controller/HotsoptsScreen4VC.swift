@@ -32,7 +32,7 @@ class HotsoptsScreen4VC: UIViewController {
         self.backButton(image: "back")
         _ = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(self.loadMapView), userInfo: nil, repeats: false)
         lblAddress.text = ""
-        self.navigationItem.title = "Create Hotspot"
+        self.navigationItem.title = "Capture Location"
     }
     
     override func didReceiveMemoryWarning() {

@@ -34,7 +34,7 @@ class HotsoptsScreen1VC: UIViewController {
         super.viewWillAppear(animated)
         self.showNavigationBar()
         self.backButton(image: "back")
-        self.title = "Create Hotspot"
+        self.title = "Report HotSpot"
     }
     
     override func viewDidLayoutSubviews() {
