@@ -82,7 +82,7 @@
                                                                                     <constraint firstAttribute="height" constant="80" id="z4O-RD-1gi"/>
                                                                                 </constraints>
                                                                             </imageView>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Report HotSpot" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0VH-7h-hCi">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Report a HotSpot" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0VH-7h-hCi">
                                                                                 <rect key="frame" x="0.0" y="108" width="152.5" height="18"/>
                                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                                                 <nil key="textColor"/>
@@ -996,11 +996,10 @@ Provisioning App</string>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ybj-36-fC8">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_icon" translatesAutoresizingMaskIntoConstraints="NO" id="P12-JA-Oak">
-                                                <rect key="frame" x="137" y="44" width="100" height="100"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hotspot" translatesAutoresizingMaskIntoConstraints="NO" id="P12-JA-Oak">
+                                                <rect key="frame" x="20" y="44" width="335" height="100"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="100" id="EzB-yA-I9e"/>
-                                                    <constraint firstAttribute="width" constant="100" id="goX-fi-KdN"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TU HotSpots" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H8s-9B-pd0">
@@ -1071,8 +1070,8 @@ Provisioning App</string>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pas-1C-1tr">
                                                         <rect key="frame" x="0.0" y="150" width="335" height="75"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Firstname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z8L-Kv-yQD">
-                                                                <rect key="frame" x="0.0" y="10" width="63" height="16"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z8L-Kv-yQD">
+                                                                <rect key="frame" x="0.0" y="10" width="68.5" height="16"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
@@ -1099,8 +1098,8 @@ Provisioning App</string>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4sH-Ox-vQB">
                                                         <rect key="frame" x="0.0" y="225" width="335" height="75"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lastname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3o7-9I-12T">
-                                                                <rect key="frame" x="0.0" y="10" width="62" height="16"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3o7-9I-12T">
+                                                                <rect key="frame" x="0.0" y="10" width="67" height="16"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
@@ -1138,7 +1137,9 @@ Provisioning App</string>
                                             <constraint firstItem="P12-JA-Oak" firstAttribute="centerX" secondItem="ybj-36-fC8" secondAttribute="centerX" id="Za8-9z-ICz"/>
                                             <constraint firstItem="H8s-9B-pd0" firstAttribute="top" secondItem="P12-JA-Oak" secondAttribute="bottom" constant="8" id="bNe-MS-9uw"/>
                                             <constraint firstItem="P12-JA-Oak" firstAttribute="top" secondItem="ybj-36-fC8" secondAttribute="top" constant="44" id="cgP-vC-Xxp"/>
+                                            <constraint firstItem="P12-JA-Oak" firstAttribute="leading" secondItem="ybj-36-fC8" secondAttribute="leading" constant="20" id="frU-Ln-IM4"/>
                                             <constraint firstItem="H8s-9B-pd0" firstAttribute="centerX" secondItem="ybj-36-fC8" secondAttribute="centerX" id="gNX-h8-JkG"/>
+                                            <constraint firstAttribute="trailing" secondItem="P12-JA-Oak" secondAttribute="trailing" constant="20" id="nCy-t1-PSr"/>
                                             <constraint firstItem="999-8C-2jg" firstAttribute="leading" secondItem="ybj-36-fC8" secondAttribute="leading" constant="20" id="xuG-ds-AtK"/>
                                         </constraints>
                                     </view>
@@ -1171,7 +1172,7 @@ Provisioning App</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8ZZ-iE-H2Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1018" y="-555"/>
+            <point key="canvasLocation" x="1016.8" y="-555.47226386806597"/>
         </scene>
         <!--History View Controller-->
         <scene sceneID="HVI-ki-QcO">
@@ -1448,7 +1449,6 @@ Provisioning App</string>
         </scene>
     </scenes>
     <resources>
-        <image name="app_icon" width="200" height="200"/>
         <image name="clipboard-account" width="100" height="100"/>
         <image name="clipboard-plus" width="100" height="100"/>
         <image name="clipboard-text" width="100" height="100"/>
