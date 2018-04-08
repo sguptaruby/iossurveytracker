@@ -67,6 +67,15 @@ class HistoryViewController: UIViewController {
         
         tblHistory.reloadData()
     }
+    
+    func btnDeleteAction(sender:UIButton)  {
+        
+    }
+    
+    func deletesummaryApi(id:String)  {
+        //let <#name#> = <#value#>
+        
+    }
 
 }
 
@@ -85,6 +94,7 @@ extension HistoryViewController:UITableViewDelegate,UITableViewDataSource {
         cell.lblDate.text = "\(activity.date ?? "") - \(activity.area ?? "")"
         cell.selectionStyle = .none
         cell.btnDelete.tag = indexPath.row
+        cell.btnDelete.isHidden = true
         return cell
     }
     

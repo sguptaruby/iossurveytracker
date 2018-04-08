@@ -42,22 +42,6 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ServeyTrackerApp/Extension/UIViewControllerExtesnsion.swift"
-            timestampString = "544860206.003601"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "209"
-            endingLineNumber = "209"
-            landmarkName = "getAllActivity()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ServeyTrackerApp/Extension/UIViewControllerExtesnsion.swift"
             timestampString = "544860206.003664"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
