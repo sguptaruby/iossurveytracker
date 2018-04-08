@@ -182,8 +182,9 @@ extension UIViewController {
     }
     
     func getAllActivity()  {
+        ServeyTrackerManager.share.activityParams.removeAll()
         let arrgetMp = MOBTXNSERVEYS.mr_findAll() as! [MOBTXNSERVEYS]
-        print(arrgetMp.first?.id ?? "")
+        print(arrgetMp ?? "")
         for activity in arrgetMp {
             ServeyTrackerManager.share.dictactivity["timestamp"] = activity.id
             ServeyTrackerManager.share.dictactivity["IncidentId"] = activity.incidentId
@@ -205,7 +206,7 @@ extension UIViewController {
             let incident = activity.subIncidentNotes?.components(separatedBy: ",")
             let dictIncident = ["incidentIdList":incident]
             ServeyTrackerManager.share.dictactivity["activityIncident"] = dictIncident
-            ServeyTrackerManager.share.activityParams.append(ServeyTrackerManager.share.dictactivity)
+            print(ServeyTrackerManager.share.dictactivity); ServeyTrackerManager.share.activityParams.append(ServeyTrackerManager.share.dictactivity)
         }
     }
     

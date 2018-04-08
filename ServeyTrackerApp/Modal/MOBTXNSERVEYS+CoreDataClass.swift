@@ -56,20 +56,20 @@ public class MOBTXNSERVEYS: NSManagedObject {
                 mobServey.date = date
             }
             
-            if let districtId : String = aDictionary[DictionaryKey.districtId] as? String {
-                mobServey.districtId = districtId
+            if let districtId : Int = aDictionary[DictionaryKey.districtId] as? Int {
+                mobServey.districtId = "\(districtId)"
             }
             
-            if let dsDivisionId : String = aDictionary[DictionaryKey.dsDivisionId] as? String {
-                mobServey.dsDivisionId = dsDivisionId
+            if let dsDivisionId : Int = aDictionary[DictionaryKey.dsDivisionId] as? Int {
+                mobServey.dsDivisionId = "\(dsDivisionId)"
             }
             
             if let images : String = aDictionary[DictionaryKey.activityImage] as? String {
                 mobServey.images = images
             }
             
-            if let incidentId : String = aDictionary[DictionaryKey.incidentId] as? String {
-                mobServey.incidentId = incidentId
+            if let incidentId : Int = aDictionary[DictionaryKey.incidentId] as? Int {
+                mobServey.incidentId = "\(incidentId)"
             }
             
             if let latitude : Double = aDictionary[DictionaryKey.latitude] as? Double {

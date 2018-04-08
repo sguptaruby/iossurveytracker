@@ -91,6 +91,7 @@ class SurveySummaryVC: UIViewController {
     }
     
     func dataSave()  {
+        print(ServeyTrackerManager.share.paramsTnxService)
         self.view.showHUD()
         MagicalRecord.save({ (context : NSManagedObjectContext!) in
             MOBTXNSERVEYS.entityFromDictionaryInContext(aDictionary: ServeyTrackerManager.share.paramsTnxService as NSDictionary, localContext: context)
