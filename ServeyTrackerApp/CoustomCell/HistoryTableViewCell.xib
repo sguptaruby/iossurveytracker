@@ -28,11 +28,21 @@
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QT4-q4-zfo">
+                                <rect key="frame" x="330" y="7" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="3K9-71-RXq"/>
+                                    <constraint firstAttribute="height" constant="25" id="gzs-i1-jB6"/>
+                                </constraints>
+                                <state key="normal" image="delete"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.95686274510000002" green="0.95686274510000002" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="QT4-q4-zfo" firstAttribute="centerY" secondItem="twa-XU-AcB" secondAttribute="centerY" id="4xZ-4g-xZt"/>
                             <constraint firstItem="RvY-Zg-ulI" firstAttribute="centerY" secondItem="twa-XU-AcB" secondAttribute="centerY" id="LAx-5e-vJJ"/>
                             <constraint firstItem="RvY-Zg-ulI" firstAttribute="leading" secondItem="twa-XU-AcB" secondAttribute="leading" constant="10" id="Pf2-zT-j3R"/>
+                            <constraint firstAttribute="trailing" secondItem="QT4-q4-zfo" secondAttribute="trailing" constant="20" id="YWz-2a-pFs"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -46,10 +56,14 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="btnDelete" destination="QT4-q4-zfo" id="msT-us-YrR"/>
                 <outlet property="contentVW" destination="twa-XU-AcB" id="zTc-Bc-Nse"/>
                 <outlet property="lblDate" destination="RvY-Zg-ulI" id="gYI-pX-3nb"/>
             </connections>
             <point key="canvasLocation" x="62" y="26"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="delete" width="30" height="30"/>
+    </resources>
 </document>

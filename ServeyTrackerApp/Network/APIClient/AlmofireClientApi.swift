@@ -47,7 +47,7 @@ class AlmofireClientApi: NSObject {
             // import image to request
             var i = 0
             
-            while(i < imagesData.count) {
+            while(i < imagesName.count) {
                 multipartFormData.append(imagesData[i], withName: "image[]", fileName: "\(imagesName[i])", mimeType: "image/jpg")
                 i = i + 1
             }

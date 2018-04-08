@@ -13,6 +13,7 @@ class HistoryTableViewCell: UITableViewCell {
     @IBOutlet weak var lblDate:UILabel!
     @IBOutlet weak var contentVW:UIView!
     @IBOutlet weak var lblArea:UILabel!
+    @IBOutlet weak var btnDelete:UIButton!
 
     override func awakeFromNib() {
         super.awakeFromNib()

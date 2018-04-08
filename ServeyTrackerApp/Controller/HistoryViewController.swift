@@ -84,6 +84,7 @@ extension HistoryViewController:UITableViewDelegate,UITableViewDataSource {
         let activity = searcharrgetMp[indexPath.row]
         cell.lblDate.text = "\(activity.date ?? "") - \(activity.area ?? "")"
         cell.selectionStyle = .none
+        cell.btnDelete.tag = indexPath.row
         return cell
     }
     
