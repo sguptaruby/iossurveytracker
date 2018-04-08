@@ -47,6 +47,7 @@
 		18C206392062EA9E00679B42 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C206382062EA9E00679B42 /* RegisterViewController.swift */; };
 		18C2063B2062EDD500679B42 /* Menu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18C2063A2062EDD500679B42 /* Menu.storyboard */; };
 		18C2063D2062EE0500679B42 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C2063C2062EE0500679B42 /* MenuViewController.swift */; };
+		18D894D82079322A00D0B73C /* SurveySummaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D894D72079322A00D0B73C /* SurveySummaryVC.swift */; };
 		18DB1CDB20642EE0008E019E /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DB1CDA20642EE0008E019E /* UITextFieldExtension.swift */; };
 		18DB1CDD2064356D008E019E /* HotsoptsScreen2VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DB1CDC2064356D008E019E /* HotsoptsScreen2VC.swift */; };
 		18DB1CDF20643589008E019E /* HotsoptsScreen3VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DB1CDE20643589008E019E /* HotsoptsScreen3VC.swift */; };
@@ -155,6 +156,7 @@
 		18C206382062EA9E00679B42 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		18C2063A2062EDD500679B42 /* Menu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Menu.storyboard; sourceTree = "<group>"; };
 		18C2063C2062EE0500679B42 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		18D894D72079322A00D0B73C /* SurveySummaryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveySummaryVC.swift; sourceTree = "<group>"; };
 		18DB1CDA20642EE0008E019E /* UITextFieldExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
 		18DB1CDC2064356D008E019E /* HotsoptsScreen2VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotsoptsScreen2VC.swift; sourceTree = "<group>"; };
 		18DB1CDE20643589008E019E /* HotsoptsScreen3VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotsoptsScreen3VC.swift; sourceTree = "<group>"; };
@@ -388,6 +390,7 @@
 				1866533220659D72009F78F6 /* ProfileViewController.swift */,
 				185BA00E20661CCE00FB3FCB /* HistoryViewController.swift */,
 				18E456D1206EA99600B4422B /* Activity SummaryVC.swift */,
+				18D894D72079322A00D0B73C /* SurveySummaryVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -507,7 +510,7 @@
 				TargetAttributes = {
 					18C205D72062C53F00679B42 = {
 						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 					18C205EE2062C53F00679B42 = {
 						CreatedOnToolsVersion = 9.2;
@@ -678,6 +681,7 @@
 				18482D4F206357F100A15A54 /* HotsoptsScreen1VC.swift in Sources */,
 				18C206392062EA9E00679B42 /* RegisterViewController.swift in Sources */,
 				18C206292062C5A600679B42 /* URLConstants.swift in Sources */,
+				18D894D82079322A00D0B73C /* SurveySummaryVC.swift in Sources */,
 				18C206212062C5A600679B42 /* UIViewControllerExtesnsion.swift in Sources */,
 				18E456D8206ED00700B4422B /* HotspotsImageVW.swift in Sources */,
 				18C206322062C7EF00679B42 /* LoginViewController.swift in Sources */,
@@ -854,8 +858,9 @@
 					"(arm7,arm64)",
 				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DMUME3PD8U;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ServeyTrackerApp/Framework",
@@ -863,7 +868,7 @@
 				INFOPLIST_FILE = ServeyTrackerApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = tobacco.SurveyTracker;
+				PRODUCT_BUNDLE_IDENTIFIER = tobacco.SurveyTracker1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
@@ -880,8 +885,9 @@
 					"(arm7,arm64)",
 				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DMUME3PD8U;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ServeyTrackerApp/Framework",
@@ -889,7 +895,7 @@
 				INFOPLIST_FILE = ServeyTrackerApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = tobacco.SurveyTracker;
+				PRODUCT_BUNDLE_IDENTIFIER = tobacco.SurveyTracker1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;

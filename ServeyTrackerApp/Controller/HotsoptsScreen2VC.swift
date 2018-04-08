@@ -94,6 +94,7 @@ class HotsoptsScreen2VC: UIViewController {
             for sip in selectedIndexPathArray {
                 let data = searchsubCategory[sip.row]
                 subIncidentIdArray.append("\(data.id)")
+                ServeyTrackerManager.share.report.append(data.name!)
             }
             let stringRepresentation = subIncidentIdArray.joined(separator: ",")
             print(subIncidentIdArray)

@@ -16,6 +16,17 @@ class ServeyTrackerManager: NSObject {
     var selectedDivisonID:String!
     var arrImages:[String] = []
     
+    var province:String!
+    var district:String!
+    var dsdivision:String!
+    var area:String!
+    var witnessDate:String!
+    
+    var report = Array<String>()
+    
+    
+    
+    
     var paramsTnxService = ["id":"","address":"","area":"","creationDate":"","date":"","districtId":"","dsDivisionId":"","images":"","incidentId":"","latitude":0.0,"longitude":0.0,"note":"","provinceId":"","subIncidentNotes":"","user_id":""] as JSONDictionary
     var activityParams = Array<JSONDictionary>()
     var activityImage = ["fileNameList":[""]]

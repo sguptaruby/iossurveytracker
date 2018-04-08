@@ -12,6 +12,8 @@ class ImageCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var imgView:UIImageView!
     @IBOutlet weak var btnDelete:UIButton!
+    @IBOutlet weak var vwBlack:UIView!
+    @IBOutlet weak var lblName:UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()

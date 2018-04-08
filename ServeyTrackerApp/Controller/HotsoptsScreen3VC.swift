@@ -97,7 +97,7 @@ class HotsoptsScreen3VC: UIViewController {
         if validation() {
             let stringRepresentation = ServeyTrackerManager.share.arrImages.joined(separator: ",")
                print(stringRepresentation)
-            
+            ServeyTrackerManager.share.witnessDate = dateTXT.text ?? ""
             ServeyTrackerManager.share.paramsTnxService[DictionaryKey.date] = dateTXT.text
             ServeyTrackerManager.share.paramsTnxService[DictionaryKey.activityImage] = stringRepresentation
             
@@ -173,6 +173,7 @@ extension HotsoptsScreen3VC:UICollectionViewDelegate,UICollectionViewDataSource,
         cell.btnDelete.addTarget(self, action: #selector(deleteImage(sender:)), for: .touchUpInside)
         let Imgname = self.getImage(imgName: ServeyTrackerManager.share.arrImages[indexPath.row])
         cell.imgView.image = UIImage(contentsOfFile: Imgname!)
+        cell.vwBlack.isHidden = true
         return cell
     }
     

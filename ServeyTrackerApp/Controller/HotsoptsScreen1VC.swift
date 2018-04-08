@@ -92,6 +92,10 @@ class HotsoptsScreen1VC: UIViewController {
     
     @IBAction func btnNextAction(sender:UIButton) {
         if validation() {
+            ServeyTrackerManager.share.province = provinceTXT.text!
+            ServeyTrackerManager.share.district = districtTXT.text!
+            ServeyTrackerManager.share.dsdivision = divisionTXT.text!
+            ServeyTrackerManager.share.area = areaTXT.text!
             ServeyTrackerManager.share.paramsTnxService[DictionaryKey.area] = areaTXT.text
             print( ServeyTrackerManager.share.paramsTnxService)
             let vc = self.storyboard?.instantiateViewController(withIdentifier: HotsoptsScreen2VC.stringRepresentation)

@@ -30,13 +30,33 @@
                         </constraints>
                         <state key="normal" image="delete"/>
                     </button>
+                    <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rxm-4B-uCs">
+                        <rect key="frame" x="0.0" y="56" width="100" height="44"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Capture 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f21-gT-Mg6">
+                                <rect key="frame" x="18.5" y="14" width="64.5" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="f21-gT-Mg6" firstAttribute="centerY" secondItem="Rxm-4B-uCs" secondAttribute="centerY" id="It8-UA-cLw"/>
+                            <constraint firstAttribute="height" constant="44" id="L3R-Oh-LDj"/>
+                            <constraint firstItem="f21-gT-Mg6" firstAttribute="centerX" secondItem="Rxm-4B-uCs" secondAttribute="centerX" id="ObF-Oc-Sbv"/>
+                        </constraints>
+                    </view>
                 </subviews>
             </view>
             <constraints>
                 <constraint firstItem="vhd-S2-qOh" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="0SX-p4-oUt"/>
                 <constraint firstAttribute="bottom" secondItem="vhd-S2-qOh" secondAttribute="bottom" id="5kT-zT-BtA"/>
+                <constraint firstAttribute="bottom" secondItem="Rxm-4B-uCs" secondAttribute="bottom" id="GmP-lz-i2m"/>
                 <constraint firstItem="eR3-56-ExY" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="GoF-rw-DB5"/>
+                <constraint firstAttribute="trailing" secondItem="Rxm-4B-uCs" secondAttribute="trailing" id="LwQ-li-S3x"/>
                 <constraint firstAttribute="trailing" secondItem="vhd-S2-qOh" secondAttribute="trailing" id="T8P-aF-RRO"/>
+                <constraint firstItem="Rxm-4B-uCs" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="moc-nS-PAI"/>
                 <constraint firstAttribute="trailing" secondItem="eR3-56-ExY" secondAttribute="trailing" id="ngg-Au-Dz9"/>
                 <constraint firstItem="vhd-S2-qOh" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="r5v-Il-Jip"/>
             </constraints>
@@ -44,6 +64,8 @@
             <connections>
                 <outlet property="btnDelete" destination="eR3-56-ExY" id="3od-Np-sVo"/>
                 <outlet property="imgView" destination="vhd-S2-qOh" id="rfu-yy-9fy"/>
+                <outlet property="lblName" destination="f21-gT-Mg6" id="t15-W4-HLL"/>
+                <outlet property="vwBlack" destination="Rxm-4B-uCs" id="3VK-wb-lrT"/>
             </connections>
             <point key="canvasLocation" x="-100" y="95"/>
         </collectionViewCell>

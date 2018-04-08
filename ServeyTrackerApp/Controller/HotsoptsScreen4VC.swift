@@ -85,8 +85,8 @@ class HotsoptsScreen4VC: UIViewController {
             ServeyTrackerManager.share.paramsTnxService[DictionaryKey.note] = messageTXT.text
             ServeyTrackerManager.share.paramsTnxService[DictionaryKey.user_id] = dictuser[DictionaryKey.user_id]
             ServeyTrackerManager.share.paramsTnxService[DictionaryKey.creationDate] = self.getCurrentTime()
-            let uuid = UUID().uuidString
-            let id = uuid + "\(Date.init().ticks)"
+            //let uuid = UUID().uuidString
+            let id = "\(Date.init().ticks)"
             ServeyTrackerManager.share.paramsTnxService[DictionaryKey.id] = id
             var lat:Double!
             if latitude != 0.0 {
@@ -106,7 +106,12 @@ class HotsoptsScreen4VC: UIViewController {
 //            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4), execute: {
 //
 //            })
-            dataSave()
+            //dataSave()
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: SurveySummaryVC.stringRepresentation) as! SurveySummaryVC
+            vc.latitude = latitude
+            vc.longitude = longitude
+            vc.message = messageTXT.text
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
     
