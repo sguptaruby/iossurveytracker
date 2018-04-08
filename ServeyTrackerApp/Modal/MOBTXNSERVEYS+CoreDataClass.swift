@@ -84,8 +84,8 @@ public class MOBTXNSERVEYS: NSManagedObject {
                 mobServey.note = note
             }
             
-            if let provinceId : String = aDictionary[DictionaryKey.provinceId] as? String {
-                mobServey.provinceId = provinceId
+            if let provinceId : Int = aDictionary[DictionaryKey.provinceId] as? Int {
+                mobServey.provinceId = "\(provinceId)"
             }
             
             if let subIncidentNotes : String = aDictionary[DictionaryKey.subIncidentNotes] as? String {

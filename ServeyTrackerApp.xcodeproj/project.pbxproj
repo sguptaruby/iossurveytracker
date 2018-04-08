@@ -866,7 +866,7 @@
 					"$(PROJECT_DIR)/ServeyTrackerApp/Framework",
 				);
 				INFOPLIST_FILE = ServeyTrackerApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tobacco.SurveyTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -893,7 +893,7 @@
 					"$(PROJECT_DIR)/ServeyTrackerApp/Framework",
 				);
 				INFOPLIST_FILE = ServeyTrackerApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tobacco.SurveyTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
