@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MagicalRecord
 
 class HistoryViewController: UIViewController {
     
@@ -14,8 +15,9 @@ class HistoryViewController: UIViewController {
     @IBOutlet weak var tblHistory:UITableView!
     var arrgetMp = Array<MOBTXNSERVEYS>()
     var searcharrgetMp = Array<MOBTXNSERVEYS>()
+    var id:String!
+    var index:Int!
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -68,13 +70,39 @@ class HistoryViewController: UIViewController {
         tblHistory.reloadData()
     }
     
-    func btnDeleteAction(sender:UIButton)  {
-        
+    @objc func btnDeleteAction(sender:UIButton)  {
+         let activity = searcharrgetMp[sender.tag]
+        id = activity.id!
+        index =  sender.tag
+        deletesummaryApi(id: activity.id!)
     }
     
     func deletesummaryApi(id:String)  {
-        //let <#name#> = <#value#>
-        
+        let dictuser = self.getAllServeyTrackerUser()
+        let user_id = dictuser[DictionaryKey.user_id]
+        let url = "\(URLConstants.deleteactivities)?userId=\(user_id ?? "")&timestamp=\(id)"
+        APIClient.init().getRequest(withURL: url) { (JSON:Any?, RESPONSE:URLResponse?, error:Error?) in
+            self.view.hideHUD()
+            if JSON != nil {
+                print(JSON ?? "nil")
+                self.deleteDataFromDB()
+                self.showAlert(title: "", message: "Delete successfully.")
+            }else{
+                self.showAlert(title: "Alert!", message: "Something went to wrong.Please try again.")
+            }
+        }
+    }
+    
+    func deleteDataFromDB()  {
+        let predicate = NSPredicate(format: "id == %@", id)
+        MOBTXNSERVEYS.mr_deleteAll(matching: predicate)
+        do {
+            try NSManagedObjectContext.mr_default().save()
+            searcharrgetMp.remove(at: index)
+            tblHistory.reloadData()
+        } catch  {
+            print("error..")
+        }
     }
 
 }
@@ -94,7 +122,8 @@ extension HistoryViewController:UITableViewDelegate,UITableViewDataSource {
         cell.lblDate.text = "\(activity.date ?? "") - \(activity.area ?? "")"
         cell.selectionStyle = .none
         cell.btnDelete.tag = indexPath.row
-        cell.btnDelete.isHidden = true
+        cell.btnDelete.addTarget(self, action: #selector(btnDeleteAction(sender:)), for: .touchUpInside)
+        //cell.btnDelete.isHidden = true
         return cell
     }
     

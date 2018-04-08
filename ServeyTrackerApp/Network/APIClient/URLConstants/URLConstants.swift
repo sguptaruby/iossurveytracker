@@ -48,6 +48,11 @@ internal final class URLConstants: NSObject {
     /// ImageUpload Update
     class var ImageUpload: String {
         return baseURL + "/activities/ImageUpload"
+    }//
+    
+    /// GetDeleteStatus 
+    class var deleteactivities: String {
+        return baseURL + "/activities/GetDeleteStatus"
     }
     
 }
