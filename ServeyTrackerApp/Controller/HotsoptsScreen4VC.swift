@@ -8,6 +8,7 @@
 
 import UIKit
 import GoogleMaps
+import GooglePlaces
 import MagicalRecord
 
 class HotsoptsScreen4VC: UIViewController {
@@ -21,6 +22,10 @@ class HotsoptsScreen4VC: UIViewController {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var locationManager: CLLocationManager?
     var lastLocation : CLLocation!
+    
+    var resultsViewController: GMSAutocompleteResultsViewController?
+    var searchController: UISearchController?
+    var resultView: UITextView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +58,26 @@ class HotsoptsScreen4VC: UIViewController {
         messageTXT.text = "Enter Message"
         messageTXT.textColor = UIColor.lightGray
         messageTXT.delegate = self
+        
+        resultsViewController = GMSAutocompleteResultsViewController()
+        resultsViewController?.delegate = self
+        
+        searchController = UISearchController(searchResultsController: resultsViewController)
+        searchController?.searchResultsUpdater = resultsViewController
+        let subView = UIView(frame: CGRect(x: 0, y: 65, width: 350.0, height: 45.0))
+        subView.backgroundColor = UIColor.red
+        subView.addSubview((searchController?.searchBar)!)
+        view.addSubview(subView)
+        // Put the search bar in the navigation bar.
+        searchController?.searchBar.sizeToFit()
+        //navigationItem.titleView = searchController?.searchBar
+        
+        // When UISearchController presents the results view, present it in
+        // this view controller, not one further up the chain.
+        definesPresentationContext = true
+        
+        // Prevent the navigation bar from being hidden when searching.
+        searchController?.hidesNavigationBarDuringPresentation = false
     }
     
     @IBAction func btnCheckBoxAction(sender:UIButton) {
@@ -196,6 +221,38 @@ extension HotsoptsScreen4VC:CLLocationManagerDelegate {
         UserDefaults.standard.set((userLocation!.coordinate.latitude), forKey: "LATVALUE")
         UserDefaults.standard.set((userLocation!.coordinate.longitude), forKey: "LONVALUE")
         lastLocation = locations.last! as CLLocation
+    }
+}
+
+extension HotsoptsScreen4VC: GMSAutocompleteResultsViewControllerDelegate {
+    func resultsController(_ resultsController: GMSAutocompleteResultsViewController,
+                           didAutocompleteWith place: GMSPlace) {
+        searchController?.isActive = false
+        // Do something with the selected place.
+        print("Place name: \(place.name)")
+        print("Place address: \(String(describing: place.formattedAddress))")
+        print("Place attributions: \(String(describing: place.attributions))")
+        lblAddress.text = place.formattedAddress ?? ""
+        latitude = place.coordinate.latitude
+        longitude = place.coordinate.longitude
+        let camera = GMSCameraPosition.camera(withLatitude: latitude , longitude: longitude, zoom: 15)
+        mapView.camera = camera
+        GMSMapView.map(withFrame: CGRect.zero, camera: camera)
+    }
+    
+    func resultsController(_ resultsController: GMSAutocompleteResultsViewController,
+                           didFailAutocompleteWithError error: Error){
+        // TODO: handle the error.
+        print("Error: ", error.localizedDescription)
+    }
+    
+    // Turn the network activity indicator on and off again.
+    func didRequestAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+    }
+    
+    func didUpdateAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
 }
 
