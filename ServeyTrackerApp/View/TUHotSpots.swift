@@ -78,6 +78,7 @@ extension TUHotSpots:UITableViewDelegate,UITableViewDataSource {
         cell.contentVW.layer.cornerRadius = 0
         cell.contentVW.layer.borderColor = UIColor.clear.cgColor
         cell.contentVW.backgroundColor = UIColor.white
+        cell.btnDelete.isHidden = true
 //        cell.layer.borderWidth = 1
 //        cell.layer.cornerRadius = 10
 //        cell.layer.borderColor = UIColor.darkGray.cgColor

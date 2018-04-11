@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ServeyTrackerApp/Modal/MOBTXNSERVEYS+CoreDataClass.swift"
-            timestampString = "545023745.310613"
+            timestampString = "545164999.4494081"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "75"
@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ServeyTrackerApp/Modal/MOBTXNSERVEYS+CoreDataClass.swift"
-            timestampString = "545023745.311013"
+            timestampString = "545164999.449864"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "92"
@@ -57,24 +57,8 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ServeyTrackerApp/Controller/SurveySummaryVC.swift"
-            timestampString = "544860206.003728"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "94"
-            endingLineNumber = "94"
-            landmarkName = "dataSave()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "ServeyTrackerApp/Modal/MOBTXNSERVEYS+CoreDataClass.swift"
-            timestampString = "545023745.3113199"
+            timestampString = "545164999.45037"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "35"

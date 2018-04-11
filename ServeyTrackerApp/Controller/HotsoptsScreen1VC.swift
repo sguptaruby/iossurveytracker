@@ -121,6 +121,9 @@ extension HotsoptsScreen1VC:UITextFieldDelegate {
             textField.resignFirstResponder()
         }else if districtTXT == textField {
             self.hideNavigationBar()
+            if ServeyTrackerManager.share.selectedDistrictID == nil {
+                return
+            }
             let mptagsData = self.getnpTagsDistrictData(id: ServeyTrackerManager.share.selectedDistrictID)
             categoryVW.arrCategoryData = mptagsData
             categoryVW.tblCategory.reloadData()
@@ -129,6 +132,9 @@ extension HotsoptsScreen1VC:UITextFieldDelegate {
             textField.resignFirstResponder()
         }else if divisionTXT == textField {
             self.hideNavigationBar()
+            if ServeyTrackerManager.share.selectedDivisonID == nil {
+                return
+            }
             let mptagsData = self.getnpTagsDivisonData(id: ServeyTrackerManager.share.selectedDivisonID)
             categoryVW.arrCategoryData = mptagsData
             categoryVW.tblCategory.reloadData()

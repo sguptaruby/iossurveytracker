@@ -58,13 +58,13 @@ class Activity_SummaryVC: UIViewController {
         cityTXT.isUserInteractionEnabled = false
         noteTXT.isUserInteractionEnabled = false
         tuhotspots = TUHotSpots.instanceFromNib() as! TUHotSpots
-        tuhotspots.frame = CGRect(x: 0, y: 64, width:view.frame.size.width, height: view.frame.size.height-120)
+        tuhotspots.frame = CGRect(x: 0, y: 64, width:view.frame.size.width, height: view.frame.size.height-140)
         tuhotspots.setActivityData(activity: activity)
         tuhotspots.isHidden = true
         self.view.addSubview(tuhotspots)
         
         HotspotsVW = HotspotsImageVW.instanceFromNib() as! HotspotsImageVW
-        HotspotsVW.frame = CGRect(x: 0, y: 64, width:view.frame.size.width, height: view.frame.size.height-120)
+        HotspotsVW.frame = CGRect(x: 0, y: 64, width:view.frame.size.width, height: view.frame.size.height-140)
         HotspotsVW.setActivityData(activity: activity)
         HotspotsVW.isHidden = true
         self.view.addSubview(HotspotsVW)

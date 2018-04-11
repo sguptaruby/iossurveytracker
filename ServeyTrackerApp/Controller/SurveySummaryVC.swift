@@ -133,6 +133,7 @@ extension SurveySummaryVC:UITableViewDelegate,UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: HistoryTableViewCell.stringRepresentation) as! HistoryTableViewCell
                 cell.lblDate.text = ServeyTrackerManager.share.report[indexPath.row]
         cell.selectionStyle = .none
+        cell.btnDelete.isHidden = true
         //cell.accessoryType = .checkmark
         return cell
     }

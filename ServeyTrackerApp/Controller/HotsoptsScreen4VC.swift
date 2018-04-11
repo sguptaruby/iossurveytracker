@@ -64,7 +64,7 @@ class HotsoptsScreen4VC: UIViewController {
         
         searchController = UISearchController(searchResultsController: resultsViewController)
         searchController?.searchResultsUpdater = resultsViewController
-        let subView = UIView(frame: CGRect(x: 0, y: 65, width: 350.0, height: 45.0))
+        let subView = UIView(frame: CGRect(x: 0, y: 90, width: 350.0, height: 45.0))
         subView.backgroundColor = UIColor.red
         subView.addSubview((searchController?.searchBar)!)
         view.addSubview(subView)
