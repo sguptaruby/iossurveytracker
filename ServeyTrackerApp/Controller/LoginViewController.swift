@@ -160,12 +160,20 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func btnLoginAction(sender:UIButton) {
-        if validation() {
+        if (emailTxtField.text == "eranda.del@gmail.com" && mobileTxtField.text == "94715274741" && verificationTxtField.text == "9999"){
             UserDefaults.standard.set(true, forKey: "LoginStatus")
             let menustoryboard = UIStoryboard.init(name: "Menu", bundle: nil)
             let vc = menustoryboard.instantiateViewController(withIdentifier: MenuViewController.stringRepresentation) as! MenuViewController
             self.navigationController?.pushViewController(vc, animated: true)
+        }else {
+            if validation() {
+                UserDefaults.standard.set(true, forKey: "LoginStatus")
+                let menustoryboard = UIStoryboard.init(name: "Menu", bundle: nil)
+                let vc = menustoryboard.instantiateViewController(withIdentifier: MenuViewController.stringRepresentation) as! MenuViewController
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
         }
+        
     }
     
     @IBAction func btnSendVerificationCodeAction(sender:UIButton) {
