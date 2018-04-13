@@ -79,7 +79,7 @@ class HistoryViewController: UIViewController {
     
     func deletesummaryApi(id:String)  {
         let dictuser = self.getAllServeyTrackerUser()
-        let user_id = dictuser[DictionaryKey.user_id]
+        let user_id = dictuser![DictionaryKey.user_id]
         let url = "\(URLConstants.deleteactivities)?userId=\(user_id ?? "")&timestamp=\(id)"
         APIClient.init().getRequest(withURL: url) { (JSON:Any?, RESPONSE:URLResponse?, error:Error?) in
             self.view.hideHUD()

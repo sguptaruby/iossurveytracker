@@ -42,7 +42,7 @@ class RegisterViewController: UIViewController {
         self.showNavigationBar()
         self.navigationItem.title = "Registration"
         let users = self.getAllServeyTrackerUser()
-        if users.count == 0 {
+        if users?.count == 0 {
             self.navigationItem.hidesBackButton = true
         }else{
             self.backButton(image: "back")

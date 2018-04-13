@@ -149,7 +149,7 @@ extension UIViewController {
         }
     }
     
-    func getAllServeyTrackerUser() -> JSONDictionary {
+    func getAllServeyTrackerUser() -> JSONDictionary? {
         let result = UserDefaults.standard.value(forKey: "userdict") as! JSONDictionary
         print(result.count)
         return result

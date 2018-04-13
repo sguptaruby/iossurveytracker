@@ -108,7 +108,7 @@ class HotsoptsScreen4VC: UIViewController {
             
             ServeyTrackerManager.share.paramsTnxService[DictionaryKey.address] = lblAddress.text
             ServeyTrackerManager.share.paramsTnxService[DictionaryKey.note] = messageTXT.text
-            ServeyTrackerManager.share.paramsTnxService[DictionaryKey.user_id] = dictuser[DictionaryKey.user_id]
+            ServeyTrackerManager.share.paramsTnxService[DictionaryKey.user_id] = dictuser?[DictionaryKey.user_id]
             ServeyTrackerManager.share.paramsTnxService[DictionaryKey.creationDate] = self.getCurrentTime()
             //let uuid = UUID().uuidString
             let id = "\(Date.init().ticks)"

@@ -61,4 +61,12 @@ final class DictionaryKey {
     static let subIncidentNotes = "subIncidentNotes"
     static let activityImage = "activityImage"
     
+    struct DefaultUser {
+        static let email = "eranda.del@gmail.com"
+        static let number = "94715274741"
+        static let code = "9999"
+        static let firstname = "Admin"
+        static let Lastname = "TuHotSpots"
+    }
+    
 }

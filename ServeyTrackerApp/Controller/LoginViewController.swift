@@ -37,7 +37,7 @@ class LoginViewController: UIViewController {
         }
         
         let users = self.getAllServeyTrackerUser()
-        if users.count == 0 {
+        if users?.count == 0 {
             let vc = self.storyboard?.instantiateViewController(withIdentifier:RegisterViewController.stringRepresentation)
             self.navigationController?.pushViewController(vc!, animated: false)
         }else{
@@ -59,9 +59,9 @@ class LoginViewController: UIViewController {
         //self.getMpTagsApiCall()
         
         let users = self.getAllServeyTrackerUser()
-        if users.count != 0 {
-            emailTxtField.text = users[DictionaryKey.email] as? String ?? ""
-            mobileTxtField.text = users[DictionaryKey.telephone] as? String ?? ""
+        if users?.count != 0 {
+            emailTxtField.text = users![DictionaryKey.email] as? String ?? ""
+            mobileTxtField.text = users![DictionaryKey.telephone] as? String ?? ""
         }
     }
     
@@ -104,18 +104,34 @@ class LoginViewController: UIViewController {
             self.showAlert(title: "", message: "Please enter verification.")
             return false
         }
-        if dict[DictionaryKey.email] as! String != emailTxtField.text! {
-            self.showAlert(title: "", message: "enter vaild user.")
-            return false
+        if dict?.count != 0 {
+            if dict![DictionaryKey.email] as! String != emailTxtField.text! {
+                self.showAlert(title: "", message: "enter vaild user.")
+                return false
+            }
+            if dict![DictionaryKey.telephone] as! String != mobileTxtField.text! {
+                self.showAlert(title: "", message: "enter vaild mobile number.")
+                return false
+            }
+            if verificationTxtField.text != ServeyTrackerManager.share.verificationCode {
+                self.showAlert(title: "", message: "Verification code is invalid.Please enter valid code.")
+                return false
+            }
+        }else{
+            if DictionaryKey.DefaultUser.email != emailTxtField.text! {
+                self.showAlert(title: "", message: "enter vaild user.")
+                return false
+            }
+            if DictionaryKey.DefaultUser.number != mobileTxtField.text! {
+                self.showAlert(title: "", message: "enter vaild mobile number.")
+                return false
+            }
+            if verificationTxtField.text != DictionaryKey.DefaultUser.code {
+                self.showAlert(title: "", message: "Verification code is invalid.Please enter valid code.")
+                return false
+            }
         }
-        if dict[DictionaryKey.telephone] as! String != mobileTxtField.text! {
-            self.showAlert(title: "", message: "enter vaild mobile number.")
-            return false
-        }
-        if verificationTxtField.text != ServeyTrackerManager.share.verificationCode {
-            self.showAlert(title: "", message: "Verification code is invalid.Please enter valid code.")
-            return false
-        }
+        
         return true
     }
     
